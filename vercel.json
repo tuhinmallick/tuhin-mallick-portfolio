@@ -1,6 +1,5 @@
 {
     "rewrites": [
-      { "source": "/", "destination": "/home-dark-animation" },
-      { "source": "/home-dark-animation", "destination": "/" }
+      { "source": "/", "destination": "/home-dark-animation" }
     ]
   }
