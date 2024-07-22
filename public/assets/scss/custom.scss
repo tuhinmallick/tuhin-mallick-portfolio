@@ -1,0 +1,16 @@
+.header-left .nav-menu li .nav-link.active,
+.header-left .nav-menu li .active span {
+  color: #ff9301;
+}
+.header-left.header-menu-style-two .nav-menu li .nav-link.active:after {
+  bottom: auto;
+  height: 100%;
+  top: 0;
+}
+.portfolio-tab {
+  border-bottom: 1px solid none;
+
+  &.active {
+    border-bottom: 1px solid #ff9301;
+  }
+}
