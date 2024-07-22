@@ -9,6 +9,8 @@ import ContactInfo from "@/components/contact/ContactInfo";
 import Map from "@/components/contact/Map";
 import Footer from "@/components/footer/FooterAnimation";
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
+
 export const metadata = {
   title:
     "Tuhin Mallick",
