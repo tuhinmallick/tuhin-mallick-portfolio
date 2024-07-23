@@ -16,11 +16,23 @@ const SocialShare = [
   { Social: <FaGithub />, link: "https://github.com/tuhinmallick" },
 ];
 
+/**
+ * @description Renders a footer component with social share links and copyright information.
+ * 
+ * @returns {object} a footer component consisting of social share icons and copyright
+ * information.
+ */
 const Footer = () => {
   return (
     <>
       <div className="row align-items-center">
         <div className="col-md-6 my-2">
+          {/**
+           * @description Generates high-quality documentation for given code.
+           * 
+           * @param {string} className - class name for the social media icons displayed in the
+           * function.
+           */}
           <div className="nav justify-content-center justify-content-md-start">
             {SocialShare.map((val, i) => (
               <a key={i} href={`${val.link}`} rel="noreferrer" target="_blank">
@@ -36,7 +48,7 @@ const Footer = () => {
           <p>
             © {new Date().getFullYear()} copyright{" "}
             <a
-              href="https://themeforest.net/user/ib-themes/portfolio"
+              href="https://www.linkedin.com/in/tuhinmallick/"
               target="_blank"
               rel="noreferrer"
             >

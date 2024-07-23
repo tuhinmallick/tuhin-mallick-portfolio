@@ -5,6 +5,13 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+/**
+ * @description Renders a slider component using the given settings, which include
+ * an array of testimonial content objects, each representing a testimonial with an
+ * image, description, reviewer name, and designation link.
+ * 
+ * @returns {array} a slideshow of 5 testimonials with images and text.
+ */
 export default function SimpleSlider() {
   const settings = {
     dots: true,
@@ -68,6 +75,22 @@ Overall, Tuhin was a great asset in our data science team.`,
       designation: "Solution Engineer at LabVantage Solutions, Inc",
       designationLink: "https://www.labvantage.com/",
     },
+    {
+      imageName: "Grant Sutcliffe",
+      desc: `A walking encyclopedia of data science and web technologies who can implement them quickly and effectively.`,
+      reviewerName: "Grant Sutcliffe",
+      reviewerLink: "https://www.linkedin.com/in/grant-sutcliffe-9745967b/",
+      designation: "Senior Data Scientist",
+      designationLink: "https://www.linkedin.com/in/grant-sutcliffe-9745967b/",
+    },
+    {
+      imageName: "Thy Pham",
+      desc: `I highly recommend Tuhin as a data scientist. Tuhin is not only exceptionally skilled in Data Science and Data Engineering, but he also stands out for his constant influx of brilliant ideas. His easy-going and humorous nature make collaboration a pleasure, while his clear communication ensures efficient teamwork. Tuhin's dedication and reliability have been invaluable, and he generously shared his vast knowledge of AI, contributing significantly to my professional growth. If you're looking for a Data Scientist with top-tier expertise, Tuhin is the ideal choice.`,
+      reviewerName: "Thy Pham",
+      reviewerLink: "https://www.linkedin.com/in/thy-dev/",
+      designation: "Senior Software Engineer",
+      designationLink: "https://www.linkedin.com/company/actian/",
+    },
 //     {
 //       imageName: "team-2",
 //       desc: ` Lorem Ipsum is simply dummy text of the printing and
@@ -88,6 +111,10 @@ Overall, Tuhin was a great asset in our data science team.`,
 
   return (
     <div className="testimonial-wrapper">
+      {/**
+       * @description Maps the `TestimonialContent` array of objects to a slide layout of
+       * testimonial media, consisting of an image and a description with reviewer information.
+       */}
       <Slider {...settings}>
         {TestimonilContent.map((val, i) => (
           <div key={i}>
