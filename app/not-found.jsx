@@ -2,7 +2,7 @@ import Link from "next/link";
 import Footer from "@/components/footer/Footer";
 
 export const metadata = {
-  title: "Page Not Found || Nairo React Nextjs Personal Portfolio Template",
+  title: "Page Not Found || Tuhin Mallick || Data Science Generalist",
 };
 const NotFound = () => {
   return (
