@@ -19,7 +19,7 @@ const ContactInfo = () => {
 
           <li className="media">
             <i className="icon icon-envelope"></i>
-            <span className="media-body">tuhin.mllk@gmail.com</span>
+            <span className="media-body">contact@tuhinmallick.com</span>
           </li>
           {/* End li */}
 

@@ -36,7 +36,7 @@ const SliderRtlAnimation = () => {
         <div className="hb-top-fixed d-flex">
           <div className="hb-info">
             <a href="tel:+04 6545-9535-6515">{conctInfo.phone}</a>
-            <a href="mailto:mail%20to:ibthemes21@gmail.com,com">
+            <a href="mailto:mail%20to:contact@tuhinmallick.com">
               {conctInfo.email}
             </a>
           </div>
