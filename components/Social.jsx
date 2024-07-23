@@ -15,31 +15,12 @@ const SocialShare = [
   { Social: <FaMedium />, link: "https://medium.com/@tuhin.mallick" },
 ];
 
-
 /**
- * @description Returns an array of links to social media platforms based on a mapping
- * function, each link is labeled with the respective social network icon.
+ * @description Returns an array of social media links. Each element in the array is
+ * represented by a `<a>` tag with a unique `key`.
  * 
- * @returns {HTML element, specifically an anchor element with a custom classname
- * defined in the function's syntax} a list of social sharing icons linked to their
- * respective platforms.
- * 
- * 	* `className`: The class name for the social icons div element, which is set to
- * "nav social-icons justify-content-center".
- * 	* `map`: A method that maps over the `SocialShare` array and creates a list of
- * social icons links. Each icon link is created by taking the `val.link` property
- * and setting it as the href attribute, with the `rel` attribute set to "noreferrer"
- * to prevent noreferrer behavior and the `target` attribute set to "_blank" to open
- * the linked URL in a new tab.
- * 	* `<a>`: An HTML anchor tag used to create each social icon link. The `key`
- * property is set to the index of the current iteration in the `map` method, which
- * is used to assign a unique identifier to each link for correct linking later on.
- * The `href` property sets the URL of the linked page, and the `rel` and `target`
- * properties are set as mentioned above.
- * 	* `<div>`: An HTML div tag used to wrap the social icon links in a container
- * element. The class name set is "social-icons" which sets the CSS style for the
- * social icons. The `justify-content-center` property sets the vertical alignment
- * of the social icons within the container.
+ * @returns {array} a collection of social media icons displayed centered within a
+ * div container.
  */
 const Social = () => {
   return (
