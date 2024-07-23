@@ -15,6 +15,35 @@ export const metadata = {
   title:
     "Tuhin Mallick",
 };
+/**
+ * @description Generates high-quality documentation for a code component. It returns
+ * a react functional component that includes several sections, such as Header, Slider,
+ * About, Resume, Portfolio, Blog, Contact Us, and Footer. Each section contains
+ * relevant components, including a contact form, map, and footer. The function creates
+ * a responsive layout using CSS classes and AOS (Animate.css) animations.
+ * 
+ * @returns {HTML element} a responsive HTML structure with various sections for
+ * portfolio, blog, contact information, and footer.
+ * 
+ * 	* `div`: This is the outermost div element that contains all the other elements.
+ * It has a class of "main-left" and a theme of "dark".
+ * 	* `Header`: This is an h1 heading element that contains the text "HomeOne". It
+ * is nested inside the "div" element.
+ * 	* `Slider`: This is a slider element that contains a series of images. It is also
+ * nested inside the "div" element.
+ * 	* `About`: This is an about section element that contains text and images. It is
+ * also nested inside the "div" element.
+ * 	* `Resume`: This is a resume section element that contains a resume PDF file. It
+ * is also nested inside the "div" element.
+ * 	* `Portfolio`: This is a portfolio section element that contains a series of
+ * projects. It is also nested inside the "div" element.
+ * 	* `Blog`: This is a blog section element that contains a list of recent blog
+ * posts. It is also nested inside the "div" element.
+ * 	* `Contactus`: This is a contact us section element that contains a contact form
+ * and map. It is also nested inside the "div" element.
+ * 	* `Footer`: This is a footer element that contains copyright information and links
+ * to other pages. It is also nested inside the "div" element.
+ */
 const HomeOne = () => {
   return (
     <div className="main-left theme-dark">

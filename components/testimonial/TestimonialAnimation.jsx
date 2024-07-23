@@ -5,6 +5,13 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+/**
+ * @description Renders a slider component using the given settings, which include
+ * an array of testimonial content objects, each representing a testimonial with an
+ * image, description, reviewer name, and designation link.
+ * 
+ * @returns {array} a slideshow of 5 testimonials with images and text.
+ */
 export default function SimpleSlider() {
   const settings = {
     dots: true,
@@ -104,6 +111,10 @@ Overall, Tuhin was a great asset in our data science team.`,
 
   return (
     <div className="testimonial-wrapper">
+      {/**
+       * @description Maps the `TestimonialContent` array of objects to a slide layout of
+       * testimonial media, consisting of an image and a description with reviewer information.
+       */}
       <Slider {...settings}>
         {TestimonilContent.map((val, i) => (
           <div key={i}>
