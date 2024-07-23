@@ -1,29 +1,33 @@
 /**
- * @description Generates a HTML block with contact information, including a street
- * address, email address, and phone number.
+ * @description Creates an HTML container with contact information, including a header
+ * with a h4 title, a paragraph describing availability for freelancing, and three
+ * list items with contact details (email, phone number, and physical address).
  * 
- * @returns {HTML fragment containing contact information for Tuhin Mukherjee} a HTML
- * fragment containing contact information in a clean and professional format.
+ * @returns {HTML fragment consisting of a div element with class "contact-info} a
+ * HTML element containing contact information for tuhinmallick.
  * 
- * 	* `className`: The class name of the container div element is "contact-info".
- * 	* `h4`: An h4 heading element with the text "What’s your story? Get in touch".
- * 	* `p`: A paragraph element with the text "Always available for freelancing if the
- * right project comes along, Feel free to contact me.".
- * 	* `ul`: A list element with three list items. Each list item has a class of either
- * "media" or "li", indicating the type of element it is.
- * 	* `i`: An icon element of class "icon" with the text "map".
- * 	* `span`: A span element with the class "media-body" that contains the contact information.
- * 	* ` className="media"`: An li element with a class of "media".
- * 	* ` i className="icon icon-envelope" `: Anli element with an icon element of class
- * "icon" with the text "envelope".
- * 	* `span`: A span element with the class "media-body" that contains the email address.
- * 	* ` className="media"`: Another li element with a class of "media".
- * 	* ` i className="icon icon-phone"`: Another li element with an icon element of
- * class "icon" with the text "phone".
- * 	* `span`: A span element with the class "media-body" that contains the phone number.
- * 
- * 	These elements are wrapped in a `div` element with the class "contact-info", which
- * contains all the contact information for the freelancer.
+ * 	* `div`: A container div element with class `contact-info`.
+ * 	* `h4`: A headings element with text "What’s your story? Get in touch".
+ * 	* `p`: A paragraph element with text "Always available for freelancing if the
+ * right project comes along, feel free to contact me.".
+ * 	* `ul`: An unordered list element with two list items.
+ * 	* `.media`: A class applied to both list items.
+ * 	* `<i>`: An icon element with class "icon".
+ * 	* `<span>`: A span element with the text content of the media-body attribute.
+ * 	* ` className="map"`: The map icon is used as the media icon.
+ * 	* `<li>`: A list item element with the `className` attribute set to "media".
+ * 	* `<i>`: Another icon element with class "icon".
+ * 	* `<span>`: Again, a span element with the text content of the media-body attribute.
+ * 	* ` className="envelope"`: The envelope icon is used as the media icon.
+ * 	* `<li>`: Another list item element with the `className` attribute set to "media".
+ * 	* `<i>`: Yet another icon element with class "icon".
+ * 	* `<span>`: Once more, a span element with the text content of the media-body attribute.
+ * 	* `<li>`: The third and final list item element with the `className` attribute
+ * set to "media".
+ * 	* `<i>`: A phone icon is used as the media icon.
+ * 	* `<span>`: The text content of the media-body attribute is displayed within the
+ * span element.
+ * 	* `+49 157 3552 3845`: The phone number is displayed within the span element.
  */
 const ContactInfo = () => {
   return (
@@ -46,7 +50,7 @@ const ContactInfo = () => {
 
           <li className="media">
             <i className="icon icon-envelope"></i>
-            <span className="media-body">tuhin.mllk@gmail.com</span>
+            <span className="media-body">contact@tuhinmallick.com</span>
           </li>
           {/* End li */}
 
