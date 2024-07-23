@@ -12,7 +12,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata = {
-  title: "Tuhin Mallick",
+  title: "Tuhin Mallick || Data Science Generalist",
   description: "Explore cutting-edge technology solutions with Tuhin Mallick. Discover services tailored for your business needs.", // Add a meta description
 };
 
