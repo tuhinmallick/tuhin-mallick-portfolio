@@ -59,14 +59,14 @@ const resumeContent = [
 
 const educatonContent = [
   {
-    passingYear: "October 2020 - Present",
+    passingYear: "October 2020 - 2023",
     degreeTitle: "Master degree in Computational Engineering",
     instituteName: "Friedrich-Alexander-Universität Erlangen-Nürnberg, Erlangen, Germany",
     courseLink: "https://www.ce.studium.fau.eu/",
     instituteLink: "https://www.fau.eu/",
   },
   {
-    passingYear: "Februrary 2022 - Present",
+    passingYear: "Februrary 2022 - 2023",
     degreeTitle: "Double Master degree in Computational Sciences",
     instituteName: "Università della Svizzera italiana USI, Lugano, Switzerland",
     courseLink: "https://www.inf.usi.ch/en/practical-information/courses-and-study-plans/double-degree/friedrich-alexander-universitat",
