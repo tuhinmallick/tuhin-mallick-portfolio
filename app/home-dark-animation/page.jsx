@@ -8,13 +8,13 @@ import Contact from "@/components/contact/Contact";
 import ContactInfo from "@/components/contact/ContactInfo";
 import Map from "@/components/contact/Map";
 import Footer from "@/components/footer/FooterAnimation";
-import { Analytics } from "@vercel/analytics/react"
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata = {
-  title:
-    "Tuhin Mallick",
+  title: "Tuhin Mallick",
 };
+
 const HomeOne = () => {
   return (
     <div className="main-left theme-dark">
@@ -51,7 +51,7 @@ const HomeOne = () => {
           <Blog />
         </div>
       </section>
-      {/* End Portfolio Section */}
+      {/* End Blog Section */}
 
       <section
         id="contactus"
@@ -101,7 +101,11 @@ const HomeOne = () => {
           <Footer />
         </div>
       </footer>
-      {/* End Contact Section */}
+      {/* End Footer Section */}
+
+      {/* Integrate Analytics and Speed Insights */}
+      <Analytics />
+      <SpeedInsights />
     </div>
   );
 };
