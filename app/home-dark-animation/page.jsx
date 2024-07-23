@@ -13,11 +13,17 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata = {
   title: "Tuhin Mallick",
+  description: "Explore cutting-edge technology solutions with Tuhin Mallick. Discover services tailored for your business needs.", // Add a meta description
 };
 
 const HomeOne = () => {
   return (
     <div className="main-left theme-dark">
+      <head>
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+        {/* Add other necessary meta tags */}
+      </head>
       <Header />
       {/* End Header Section */}
 
