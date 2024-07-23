@@ -15,24 +15,31 @@ const SocialShare = [
   { Social: <FaMedium />, link: "https://medium.com/@tuhin.mallick" },
 ];
 
+
 /**
- * @description Maps over an array of objects (`SocialShare`) and generates a markup
- * for a social media icons bar, each icon having a specific `link` property and
- * `Social` string value.
+ * @description Returns an array of links to social media platforms based on a mapping
+ * function, each link is labeled with the respective social network icon.
  * 
- * @returns {HTML element (a `<div} a div element containing a map of social sharing
- * icons.
+ * @returns {HTML element, specifically an anchor element with a custom classname
+ * defined in the function's syntax} a list of social sharing icons linked to their
+ * respective platforms.
  * 
- * 	* `className`: A string representing the CSS class to apply to the anchor element.
- * 	* `key`: An integer value unique to each element in the `SocialShare` array, used
- * for rendering and optimization purposes.
- * 	* `href`: A URL object representing the link associated with the social media icon.
- * 	* `rel`: An optional string value indicating whether the linked page should be
- * opened in a new tab or not.
- * 	* `target`: An optional string value indicating where the linked page should be
- * opened.
- * 	* `Social`: The key that identifies the social media platform, which determines
- * the SVG icon used for rendering.
+ * 	* `className`: The class name for the social icons div element, which is set to
+ * "nav social-icons justify-content-center".
+ * 	* `map`: A method that maps over the `SocialShare` array and creates a list of
+ * social icons links. Each icon link is created by taking the `val.link` property
+ * and setting it as the href attribute, with the `rel` attribute set to "noreferrer"
+ * to prevent noreferrer behavior and the `target` attribute set to "_blank" to open
+ * the linked URL in a new tab.
+ * 	* `<a>`: An HTML anchor tag used to create each social icon link. The `key`
+ * property is set to the index of the current iteration in the `map` method, which
+ * is used to assign a unique identifier to each link for correct linking later on.
+ * The `href` property sets the URL of the linked page, and the `rel` and `target`
+ * properties are set as mentioned above.
+ * 	* `<div>`: An HTML div tag used to wrap the social icon links in a container
+ * element. The class name set is "social-icons" which sets the CSS style for the
+ * social icons. The `justify-content-center` property sets the vertical alignment
+ * of the social icons within the container.
  */
 const Social = () => {
   return (
