@@ -36,7 +36,7 @@ const Footer = () => {
           <p>
             © {new Date().getFullYear()} copyright{" "}
             <a
-              href="https://themeforest.net/user/ib-themes/portfolio"
+              href="https://www.linkedin.com/in/tuhinmallick/"
               target="_blank"
               rel="noreferrer"
             >
