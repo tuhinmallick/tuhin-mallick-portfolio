@@ -12,21 +12,57 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata = {
-  title: "Tuhin Mallick",
+  title: "Tuhin Mallick || Data Science Generalist",
+  description: "Explore cutting-edge technology solutions with Tuhin Mallick. Discover services tailored for your business needs.", // Add a meta description
 };
 
 /**
- * @description Renders a home page with various sections, including a header, slider,
- * about section, resume section, portfolio section, blog section, contact section,
- * and footer. It also integrates analytics and speed insights into the page.
+ * @description Generates a homepage layout with various sections, including a header,
+ * slider, about section, resume section, portfolio section, blog section, contact
+ * section, and footer. It also includes Google Analytics and Speed Insights integration.
  * 
- * @returns {Component} a well-structured HTML file containing various sections and
- * elements, including a header, slider, about section, resume section, portfolio
- * section, blog section, contact section, and footer.
+ * @returns {HTML element containing all the sections of a website's homepage, including
+ * the header, slider, about, resume, portfolio, blog, contact, and footer sections}
+ * a React component representing a homepage with a navigation menu, a header section,
+ * and various sections containing portfolio items, blog posts, contact information,
+ * and analytics integration.
+ * 
+ * 	* `<div className="main-left theme-dark">`: This is a container div with a class
+ * name "main-left" and a theme of "dark".
+ * 	* `<head>`: This is a header section that contains metadata such as title and description.
+ * 	* `<Header />`: This is a component that renders a header section.
+ * 	* `<Slider />`: This is a component that renders a slider section.
+ * 	* `<About />`: This is a component that renders an about section.
+ * 	* `<Resume />`: This is a component that renders a resume section.
+ * 	* `<section>`: This is a container div with a class name "section" and a id of
+ * "work". It contains a container div with a class name "container" and a title.
+ * 	* `<Portfolio />`: This is a component that renders a portfolio section.
+ * 	* `<Blog />`: This is a component that renders a blog section.
+ * 	* `<section>`: This is a container div with a class name "section" and an id of
+ * "contactus". It contains a container div with a class name "container" and a title.
+ * 	* `<ContactInfo />`: This is a component that renders contact information.
+ * 	* `<div className="row">`: This is a container div with a class name "row".
+ * 	* `<ContactForm>`: This is a component that renders a contact form.
+ * 	* `<h4>` : This is an h4 tag with content "Say Something".
+ * 	* `<Map>`: This is a component that renders a map.
+ * 	* `<footer className="footer white">`: This is a footer container div with a class
+ * name "footer" and a theme of "white".
+ * 	* `<div className="container">`: This is a container div with a class name "container".
+ * 	* `<Footer />`: This is a component that renders a footer section.
+ * 	* `<Analytics>`: This is a component that renders analytics data.
+ * 	* `<SpeedInsights>`: This is a component that renders speed insights data.
+ * 
+ * 	In summary, the `HomeOne` function returns a JSX object with various components
+ * and sections that make up a website's homepage.
  */
 const HomeOne = () => {
   return (
     <div className="main-left theme-dark">
+      <head>
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+        {/* Add other necessary meta tags */}
+      </head>
       <Header />
       {/* End Header Section */}
 
