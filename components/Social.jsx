@@ -15,6 +15,7 @@ const SocialShare = [
   { Social: <FaMedium />, link: "https://medium.com/@tuhin.mallick" },
 ];
 
+
 const Social = () => {
   return (
     <div className="nav social-icons justify-content-center">
