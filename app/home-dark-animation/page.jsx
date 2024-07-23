@@ -22,6 +22,7 @@ const HomeOne = () => {
       <head>
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
+        <meta name="robots" content="index, follow" />
         {/* Add other necessary meta tags */}
       </head>
       <Header />
