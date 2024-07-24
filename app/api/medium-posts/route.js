@@ -12,7 +12,11 @@ async function savePostsToStorage(posts) {
     console.log('Posts saved to storage successfully.');
 }
 
-export async function GET() {
+export default async function handler(req, res) {
+  if (req.headers.authorization !== `Bearer ${process.env.CRON_SECRET}`) {
+    return res.status(401).end('Unauthorized');
+  }
+
   const RAPIDAPI_KEY = process.env.RAPIDAPI_KEY; // Ensure this is set in your environment variables
   const USERNAME = 'tuhin.mallick'; // Replace with the actual Medium username
 
@@ -91,12 +95,11 @@ export async function GET() {
     });
 
     console.log('Formatted posts:', formattedPosts);
-    // return NextResponse.json(formattedPosts);
     await savePostsToStorage(formattedPosts); // Save posts to storage
-    return NextResponse.json({ message: "Posts formatted and saved successfully", posts: formattedPosts });
+    res.status(200).json({ message: "Posts formatted and saved successfully", posts: formattedPosts });
   } catch (error) {
     console.error('Error fetching Medium posts:', error.response?.data || error.message);
     console.error('Error details:', error);
-    return NextResponse.json({ error: 'Failed to fetch Medium posts', details: error.message }, { status: 500 });
+    res.status(500).json({ error: 'Failed to fetch Medium posts', details: error.message });
   }
 }
