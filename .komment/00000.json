@@ -4,24 +4,24 @@
     "path": "app/api/medium-posts/route.js",
     "content": {
       "structured": {
-        "description": "An API endpoint that fetches articles from Medium using an unofficial API, formats them into a specific structure, and saves them to storage. The API uses axios to make requests to the Medium API, and vercel/blob to store the formatted posts. It also includes error handling and authentication checks to ensure authorized access.",
+        "description": "A Next.js API endpoint that fetches user articles from Medium using the unofficial Medium API and saves them to storage in JSON format. The endpoint uses Axios for HTTP requests, Vercel's Blob API for storing files, and the `@vercel/blob` package for interacting with the Blob API.",
         "items": [
           {
-            "id": "a85f3e88-eed1-1ea1-ba4e-916b25894a7c",
+            "id": "54465953-dabd-4893-ea45-8a5b155e9445",
             "ancestors": [],
-            "description": "Serializes a list of `posts` into JSON files, naming each file based on its index (starting from 1), and stores them in a storage medium with public access and no random suffix addition.",
+            "description": "Saves a list of posts to storage, serializing each post as a JSON file with a unique filename based on an incrementing index. The files are stored publicly and without random suffixes.",
             "params": [
               {
                 "name": "posts",
                 "default_value": null,
                 "optional": false,
-                "type_name": "any[]",
-                "description": "Intended to hold an array of posts."
+                "type_name": "(object)[]",
+                "description": "Used to store multiple posts into storage."
               }
             ],
             "usage": {
               "language": "javascript",
-              "code": "savePostsToStorage([{title: 'Post 1', content: 'This is post 1'}, {title: 'Post 2', content: 'This is post 2'}]);\n",
+              "code": "savePostsToStorage([\n    {title: 'Post One', content: 'This is post one'},\n    {title: 'Post Two', content: 'This is post two'}\n]);\n",
               "description": ""
             },
             "name": "savePostsToStorage",
@@ -37,32 +37,32 @@
             "docLength": null
           },
           {
-            "id": "1d1d6264-6c7a-45b3-d249-30f47e8143ce",
+            "id": "e86d685d-2bef-f694-2c4c-994d9156141e",
             "ancestors": [],
-            "description": "Retrieves a user's articles from the Medium API, extracts relevant information such as article IDs, titles, and images, formats the data, and saves it to storage after verifying authentication through environment variables and HTTP headers.",
+            "description": "Retrieves Medium articles for a given user, processes their details, and saves them to storage. It handles GET and POST requests, authenticates using RapidAPI and CRON_SECRET, and logs each step of the process.",
             "params": [
               {
                 "name": "req",
                 "default_value": null,
                 "optional": false,
-                "type_name": "any",
-                "description": "An object representing the HTTP request made to the server."
+                "type_name": "object",
+                "description": "Responsible for representing an incoming HTTP request."
               },
               {
                 "name": "res",
                 "default_value": null,
                 "optional": false,
                 "type_name": "Response",
-                "description": "Responsible for sending HTTP responses to the client."
+                "description": "Used to return HTTP responses."
               }
             ],
             "returns": {
-              "type_name": "object",
-              "description": "A JSON response that includes either an error message and details if there was an error fetching Medium posts, or a success message and the formatted posts successfully fetched from Medium and saved to storage."
+              "type_name": "Promise<jsonResponse>",
+              "description": "A JSON response with two properties: `message` and `posts`, where `posts` contains an array of formatted Medium posts in JSON format."
             },
             "usage": {
               "language": "javascript",
-              "code": "const express = require('express');\nconst app = express();\napp.use(express.json());\napp.post('/medium-posts', handler);\n",
+              "code": "handler({ method: 'POST', headers: { authorization: `Bearer ${process.env.CRON_SECRET}` } }, res => {\n  if (res.status === 200) {\n    const posts = res.json().posts;\n    // Process and use the formatted posts here.\n  }\n});",
               "description": ""
             },
             "name": "handler",
@@ -74,19 +74,19 @@
               "comment": null
             },
             "item_type": "function",
-            "length": 95,
+            "length": 103,
             "docLength": null
           },
           {
-            "id": "9eb5ca59-b5d9-6bab-1846-0273a041cc09",
+            "id": "2b27e0df-87ed-e181-0e47-f217efd92c7c",
             "ancestors": [
-              "1d1d6264-6c7a-45b3-d249-30f47e8143ce"
+              "e86d685d-2bef-f694-2c4c-994d9156141e"
             ],
-            "description": "Formats posts data.",
+            "description": "Formats blog posts.",
             "name": null,
             "location": {
-              "start": 88,
-              "insert": 89,
+              "start": 96,
+              "insert": 97,
               "offset": " ",
               "indent": 6,
               "comment": null

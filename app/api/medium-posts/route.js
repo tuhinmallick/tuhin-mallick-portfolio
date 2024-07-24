@@ -3,11 +3,11 @@ import { put } from '@vercel/blob';
 import axios from 'axios';
 
 /**
- * @description Serializes a list of `posts` into JSON files, naming each file based
- * on its index (starting from 1), and stores them in a storage medium with public
- * access and no random suffix addition.
+ * @description Saves a list of posts to storage, serializing each post as a JSON
+ * file with a unique filename based on an incrementing index. The files are stored
+ * publicly and without random suffixes.
  * 
- * @param {any[]} posts - Intended to hold an array of posts.
+ * @param {(object)[]} posts - Used to store multiple posts into storage.
  */
 async function savePostsToStorage(posts) {
     let index = 1;  // Initialize index to start from 1
@@ -20,34 +20,40 @@ async function savePostsToStorage(posts) {
 }
 
 /**
- * @description Retrieves a user's articles from the Medium API, extracts relevant
- * information such as article IDs, titles, and images, formats the data, and saves
- * it to storage after verifying authentication through environment variables and
- * HTTP headers.
+ * @description Retrieves Medium articles for a given user, processes their details,
+ * and saves them to storage. It handles GET and POST requests, authenticates using
+ * RapidAPI and CRON_SECRET, and logs each step of the process.
  * 
- * @param {any} req - An object representing the HTTP request made to the server.
+ * @param {object} req - Responsible for representing an incoming HTTP request.
  * 
- * @param {Response} res - Responsible for sending HTTP responses to the client.
+ * @param {Response} res - Used to return HTTP responses.
  * 
- * @returns {object} A JSON response that includes either an error message and details
- * if there was an error fetching Medium posts, or a success message and the formatted
- * posts successfully fetched from Medium and saved to storage.
+ * @returns {Promise<jsonResponse>} A JSON response with two properties: `message`
+ * and `posts`, where `posts` contains an array of formatted Medium posts in JSON format.
  */
 export default async function handler(req, res) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method Not Allowed' });
-  }
-
-  if (req.headers.authorization !== `Bearer ${process.env.CRON_SECRET}`) {
-    return res.status(401).end('Unauthorized');
-  }
-
-  const RAPIDAPI_KEY = process.env.RAPIDAPI_KEY; // Ensure this is set in your environment variables
-  const USERNAME = 'tuhin.mallick'; // Replace with the actual Medium username
-
-  console.log('Starting Medium API request');
-
-  try {
+    console.log('Request received:', req.method, req.url);
+  
+    // Allow both GET and POST methods
+    if (req.method !== 'GET' && req.method !== 'POST') {
+      return res.status(405).json({ error: 'Method Not Allowed' });
+    }
+  
+    // For GET requests, we might want to skip the authorization check
+    if (req.method === 'POST' && req.headers.authorization !== `Bearer ${process.env.CRON_SECRET}`) {
+      return res.status(401).end('Unauthorized');
+    }
+  
+    const RAPIDAPI_KEY = process.env.RAPIDAPI_KEY;
+    const USERNAME = 'tuhin.mallick';
+  
+    console.log('Starting Medium API request');
+    console.log('Environment variables:', {
+      CRON_SECRET: process.env.CRON_SECRET ? 'Set' : 'Not set',
+      RAPIDAPI_KEY: process.env.RAPIDAPI_KEY ? 'Set' : 'Not set'
+    });
+  
+    try {
     // Step 1: Get user ID
     console.log('Fetching user ID');
     const userIdResponse = await axios.get(`https://medium2.p.rapidapi.com/user/id_for/${USERNAME}`, {
@@ -107,7 +113,7 @@ export default async function handler(req, res) {
     // Step 4: Format posts
     console.log('Formatting posts');
     const formattedPosts = allPosts.map((post, index) => {
-      // Formats posts data.
+      // Formats blog posts.
 
       const publishedAt = new Date(post.publishedAt || post.html.match(/<meta property="article:published_time" content="([^"]+)"/)?.[1] || Date.now());
       return {
