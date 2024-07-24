@@ -13,6 +13,10 @@ async function savePostsToStorage(posts) {
 }
 
 export default async function handler(req, res) {
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method Not Allowed' });
+  }
+
   if (req.headers.authorization !== `Bearer ${process.env.CRON_SECRET}`) {
     return res.status(401).end('Unauthorized');
   }
@@ -63,27 +67,27 @@ export default async function handler(req, res) {
     // Step 3: Get details for each article
     let allPosts = [];
     for (const articleId of articleIds) {
-    console.log(`Fetching details for article: ${articleId}`);
-    const articleDetailsResponse = await axios.get(`https://medium2.p.rapidapi.com/article/${articleId}/html`, {
+      console.log(`Fetching details for article: ${articleId}`);
+      const articleDetailsResponse = await axios.get(`https://medium2.p.rapidapi.com/article/${articleId}/html`, {
         params: {
-        fullpage: 'true',
-        style_file: 'https://mediumapi.com/styles/dark.css'
+          fullpage: 'true',
+          style_file: 'https://mediumapi.com/styles/dark.css'
         },
         headers: {
-        'x-rapidapi-key': RAPIDAPI_KEY,
-        'x-rapidapi-host': 'medium2.p.rapidapi.com',
-        'Accept': 'application/json' // Ensure this header is correct for the content type you expect to receive
+          'x-rapidapi-key': RAPIDAPI_KEY,
+          'x-rapidapi-host': 'medium2.p.rapidapi.com',
+          'Accept': 'application/json' // Ensure this header is correct for the content type you expect to receive
         }
-    });
-    console.log(`Article details response for ${articleId}:`, articleDetailsResponse.data);
-    allPosts.push(articleDetailsResponse.data);
+      });
+      console.log(`Article details response for ${articleId}:`, articleDetailsResponse.data);
+      allPosts.push(articleDetailsResponse.data);
     }
 
     // Step 4: Format posts
     console.log('Formatting posts');
     const formattedPosts = allPosts.map((post, index) => {
-    const publishedAt = new Date(post.publishedAt || post.html.match(/<meta property="article:published_time" content="([^"]+)"/)?.[1]);
-    return {
+      const publishedAt = new Date(post.publishedAt || post.html.match(/<meta property="article:published_time" content="([^"]+)"/)?.[1] || Date.now());
+      return {
         id: post.id,
         date: publishedAt ? publishedAt.toLocaleDateString("en-US", { day: '2-digit', month: 'short', year: 'numeric' }).toUpperCase().replace(' ', '/') : 'UNKNOWN DATE',
         author: (post.author || post.html.match(/<meta name="author" content="([^"]+)"/)?.[1] || 'UNKNOWN').toUpperCase(),
@@ -91,7 +95,7 @@ export default async function handler(req, res) {
         content: post.content || post.html.match(/<meta name="description" content="([^"]+)"/)?.[1] || 'UNKNOWN DESCRIPTION',
         imageSrc: post.imageUrl || post.html.match(/<meta property="og:image" content="([^"]+)"/)?.[1] || '/img/blog/default.jpg',
         delay: index * 200
-    };
+      };
     });
 
     console.log('Formatted posts:', formattedPosts);
