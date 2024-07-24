@@ -1,22 +1,6 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "api/**/*.js",
-        "use": "@vercel/node"
-      }
-    ],
-    "routes": [
-      {
-        "src": "/api/(.*)",
-        "dest": "/api/$1"
-      }
-    ],
-    "crons": [
-      {
-        "path": "/api/medium-posts",
-        "schedule": "0 10 * * *"
-      }
-    ]
+    "crons": [{
+      "path": "/api/medium-posts",
+      "schedule": "0 10 * * *"
+    }]
   }
-  
