@@ -4,95 +4,39 @@
     "path": "app/api/medium-posts/route.js",
     "content": {
       "structured": {
-        "description": "An Next.js API endpoint that fetches Medium articles for a given user and saves them to storage as JSON files. It uses Axios to make requests to the unofficial Medium API and RapidAPI to fetch article details. The code formats the posts by extracting metadata from HTML content, such as title, author, published date, image source, and content, before saving them to storage using the `put` method of the `@vercel/blob` package.",
+        "description": "Two server-side handlers for the Next.js API route: one that fetches and saves user posts from Medium, and another that returns a success message indicating the API is working. The code utilizes Axios to make HTTP requests to the unofficial Medium API, JSON.stringify to convert data into JSON format, and put function to save the posts to Vercel Blob Storage.",
         "items": [
           {
-            "id": "4610873f-2d2d-929d-0b4f-b62d135a3135",
+            "id": "2a4c2aa1-0542-979d-2048-176240b4838d",
             "ancestors": [],
-            "description": "Iterates over an array of posts, serializes each post to JSON, and saves it to a file with a specific naming convention. The files are made publicly accessible without random suffixes.",
-            "params": [
-              {
-                "name": "posts",
-                "default_value": null,
-                "optional": false,
-                "type_name": "any[]",
-                "description": "Required to save posts to storage."
-              }
-            ],
-            "usage": {
-              "language": "javascript",
-              "code": "savePostsToStorage([{ title: 'Post 1', content: 'Content of post 1' }, { title: 'Post 2', content: 'Content of post 2'}]);",
-              "description": ""
-            },
-            "name": "savePostsToStorage",
-            "location": {
-              "start": 5,
-              "insert": 5,
-              "offset": " ",
-              "indent": 0,
-              "comment": null
-            },
-            "item_type": "function",
-            "length": 9,
-            "docLength": null
-          },
-          {
-            "id": "05c73afd-13c0-a1aa-2841-011e38c2a92e",
-            "ancestors": [],
-            "description": "Retrieves a user's articles from the unofficial Medium API, extracts article details, formats the data, and saves it to storage. It handles errors and returns an HTTP response with the formatted posts or error message.",
+            "description": "Receives a request (`req`) and sends a response (`res`). It logs the request method and URL to the console, then returns a JSON response with a success message indicating that the API is functioning correctly.",
             "params": [
               {
                 "name": "req",
                 "default_value": null,
                 "optional": false,
-                "type_name": "object",
-                "description": "Used to represent the HTTP request being processed."
+                "type_name": "Request | IncomingMessage",
+                "description": "Used to receive the incoming HTTP request."
               },
               {
                 "name": "res",
                 "default_value": null,
                 "optional": false,
                 "type_name": "Response",
-                "description": "Responsible for sending responses to clients."
+                "description": "Responsible for sending responses to HTTP requests."
               }
             ],
-            "returns": {
-              "type_name": "json",
-              "description": "An object containing two properties - \"message\" and \"posts\". The \"message\" property holds a string indicating success or failure of post formatting and saving operation. The \"posts\" property holds an array of formatted posts."
-            },
-            "usage": {
-              "language": "javascript",
-              "code": "handler({ method: 'GET', url: '/' }, {\n  json: (result) => console.log(result)\n});\n",
-              "description": ""
-            },
+            "usage": null,
             "name": "handler",
             "location": {
-              "start": 15,
-              "insert": 15,
+              "start": 113,
+              "insert": 113,
               "offset": " ",
               "indent": 0,
               "comment": null
             },
             "item_type": "function",
-            "length": 97,
-            "docLength": null
-          },
-          {
-            "id": "abf7bc96-c0b5-93a1-8247-9e49ca6df6c4",
-            "ancestors": [
-              "05c73afd-13c0-a1aa-2841-011e38c2a92e"
-            ],
-            "description": "Formats blog posts.",
-            "name": null,
-            "location": {
-              "start": 90,
-              "insert": 91,
-              "offset": " ",
-              "indent": 6,
-              "comment": null
-            },
-            "item_type": "higher_order_invocation",
-            "length": 12,
+            "length": 4,
             "docLength": null
           }
         ]
