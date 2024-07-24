@@ -13,20 +13,28 @@ async function savePostsToStorage(posts) {
 }
 
 export default async function handler(req, res) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method Not Allowed' });
-  }
-
-  if (req.headers.authorization !== `Bearer ${process.env.CRON_SECRET}`) {
-    return res.status(401).end('Unauthorized');
-  }
-
-  const RAPIDAPI_KEY = process.env.RAPIDAPI_KEY; // Ensure this is set in your environment variables
-  const USERNAME = 'tuhin.mallick'; // Replace with the actual Medium username
-
-  console.log('Starting Medium API request');
-
-  try {
+    console.log('Request received:', req.method, req.url);
+  
+    // Allow both GET and POST methods
+    if (req.method !== 'GET' && req.method !== 'POST') {
+      return res.status(405).json({ error: 'Method Not Allowed' });
+    }
+  
+    // For GET requests, we might want to skip the authorization check
+    if (req.method === 'POST' && req.headers.authorization !== `Bearer ${process.env.CRON_SECRET}`) {
+      return res.status(401).end('Unauthorized');
+    }
+  
+    const RAPIDAPI_KEY = process.env.RAPIDAPI_KEY;
+    const USERNAME = 'tuhin.mallick';
+  
+    console.log('Starting Medium API request');
+    console.log('Environment variables:', {
+      CRON_SECRET: process.env.CRON_SECRET ? 'Set' : 'Not set',
+      RAPIDAPI_KEY: process.env.RAPIDAPI_KEY ? 'Set' : 'Not set'
+    });
+  
+    try {
     // Step 1: Get user ID
     console.log('Fetching user ID');
     const userIdResponse = await axios.get(`https://medium2.p.rapidapi.com/user/id_for/${USERNAME}`, {
