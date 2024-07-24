@@ -3,11 +3,11 @@ import { put } from '@vercel/blob';
 import axios from 'axios';
 
 /**
- * @description Serializes a list of posts into JSON files and saves them to storage,
- * using incremental filenames starting from "post-1.json", with each file being
- * publicly accessible and having no random suffix added.
+ * @description Serializes a list of `posts` into JSON files, naming each file based
+ * on its index (starting from 1), and stores them in a storage medium with public
+ * access and no random suffix addition.
  * 
- * @param {(object)[]} posts - Expected to be an array of posts objects.
+ * @param {any[]} posts - Intended to hold an array of posts.
  */
 async function savePostsToStorage(posts) {
     let index = 1;  // Initialize index to start from 1
@@ -20,19 +20,24 @@ async function savePostsToStorage(posts) {
 }
 
 /**
- * @description Retrieves articles from a user's Medium account using an unofficial
- * API, extracts relevant information such as title, author, and image URL, formats
- * the data into a JSON object, saves it to storage, and returns a success response
- * with the formatted posts.
+ * @description Retrieves a user's articles from the Medium API, extracts relevant
+ * information such as article IDs, titles, and images, formats the data, and saves
+ * it to storage after verifying authentication through environment variables and
+ * HTTP headers.
  * 
- * @param {http.IncomingMessage} req - Passed to the handler for an HTTP request.
+ * @param {any} req - An object representing the HTTP request made to the server.
  * 
- * @param {Response} res - Used to send the response back to the client.
+ * @param {Response} res - Responsible for sending HTTP responses to the client.
  * 
- * @returns {object} JSON data containing a message and an array of formatted posts,
- * with a status code of either 200 (success) or 500 (error).
+ * @returns {object} A JSON response that includes either an error message and details
+ * if there was an error fetching Medium posts, or a success message and the formatted
+ * posts successfully fetched from Medium and saved to storage.
  */
 export default async function handler(req, res) {
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method Not Allowed' });
+  }
+
   if (req.headers.authorization !== `Bearer ${process.env.CRON_SECRET}`) {
     return res.status(401).end('Unauthorized');
   }
@@ -83,29 +88,29 @@ export default async function handler(req, res) {
     // Step 3: Get details for each article
     let allPosts = [];
     for (const articleId of articleIds) {
-    console.log(`Fetching details for article: ${articleId}`);
-    const articleDetailsResponse = await axios.get(`https://medium2.p.rapidapi.com/article/${articleId}/html`, {
+      console.log(`Fetching details for article: ${articleId}`);
+      const articleDetailsResponse = await axios.get(`https://medium2.p.rapidapi.com/article/${articleId}/html`, {
         params: {
-        fullpage: 'true',
-        style_file: 'https://mediumapi.com/styles/dark.css'
+          fullpage: 'true',
+          style_file: 'https://mediumapi.com/styles/dark.css'
         },
         headers: {
-        'x-rapidapi-key': RAPIDAPI_KEY,
-        'x-rapidapi-host': 'medium2.p.rapidapi.com',
-        'Accept': 'application/json' // Ensure this header is correct for the content type you expect to receive
+          'x-rapidapi-key': RAPIDAPI_KEY,
+          'x-rapidapi-host': 'medium2.p.rapidapi.com',
+          'Accept': 'application/json' // Ensure this header is correct for the content type you expect to receive
         }
-    });
-    console.log(`Article details response for ${articleId}:`, articleDetailsResponse.data);
-    allPosts.push(articleDetailsResponse.data);
+      });
+      console.log(`Article details response for ${articleId}:`, articleDetailsResponse.data);
+      allPosts.push(articleDetailsResponse.data);
     }
 
     // Step 4: Format posts
     console.log('Formatting posts');
     const formattedPosts = allPosts.map((post, index) => {
-    // Formats and processes an array of blog posts.
+      // Formats posts data.
 
-    const publishedAt = new Date(post.publishedAt || post.html.match(/<meta property="article:published_time" content="([^"]+)"/)?.[1]);
-    return {
+      const publishedAt = new Date(post.publishedAt || post.html.match(/<meta property="article:published_time" content="([^"]+)"/)?.[1] || Date.now());
+      return {
         id: post.id,
         date: publishedAt ? publishedAt.toLocaleDateString("en-US", { day: '2-digit', month: 'short', year: 'numeric' }).toUpperCase().replace(' ', '/') : 'UNKNOWN DATE',
         author: (post.author || post.html.match(/<meta name="author" content="([^"]+)"/)?.[1] || 'UNKNOWN').toUpperCase(),
@@ -113,7 +118,7 @@ export default async function handler(req, res) {
         content: post.content || post.html.match(/<meta name="description" content="([^"]+)"/)?.[1] || 'UNKNOWN DESCRIPTION',
         imageSrc: post.imageUrl || post.html.match(/<meta property="og:image" content="([^"]+)"/)?.[1] || '/img/blog/default.jpg',
         delay: index * 200
-    };
+      };
     });
 
     console.log('Formatted posts:', formattedPosts);
