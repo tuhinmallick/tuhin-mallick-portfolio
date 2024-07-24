@@ -4,39 +4,88 @@
     "path": "app/api/medium-posts/route.js",
     "content": {
       "structured": {
-        "description": "Two server-side handlers for the Next.js API route: one that fetches and saves user posts from Medium, and another that returns a success message indicating the API is working. The code utilizes Axios to make HTTP requests to the unofficial Medium API, JSON.stringify to convert data into JSON format, and put function to save the posts to Vercel Blob Storage.",
+        "description": "An API endpoint that fetches Medium articles from a user's profile using the RapidAPI unofficial Medium API and then formats the posts for storage in a blob storage using Next.js. The endpoint makes four requests: one to get the user ID, another to retrieve article IDs, a third to fetch article details, and a fourth to format the posts into JSON strings for storage.",
         "items": [
           {
-            "id": "2a4c2aa1-0542-979d-2048-176240b4838d",
+            "id": "92c5dc91-9664-17a1-6444-7038425dca0e",
             "ancestors": [],
-            "description": "Receives a request (`req`) and sends a response (`res`). It logs the request method and URL to the console, then returns a JSON response with a success message indicating that the API is functioning correctly.",
+            "description": "Saves a list of posts to JSON files in a storage system, assigning each post a unique filename based on its index. The files are set to public access and do not have a random suffix.",
             "params": [
               {
-                "name": "req",
+                "name": "posts",
                 "default_value": null,
                 "optional": false,
-                "type_name": "Request | IncomingMessage",
-                "description": "Used to receive the incoming HTTP request."
-              },
-              {
-                "name": "res",
-                "default_value": null,
-                "optional": false,
-                "type_name": "Response",
-                "description": "Responsible for sending responses to HTTP requests."
+                "type_name": "any[]",
+                "description": "An array of posts to be saved to storage."
               }
             ],
-            "usage": null,
-            "name": "handler",
+            "usage": {
+              "language": "javascript",
+              "code": "savePostsToStorage([\n    {title: 'Post 1', content: 'This is post one.'},\n    {title: 'Post 2', content: 'This is post two.'}\n]);\n",
+              "description": ""
+            },
+            "name": "savePostsToStorage",
             "location": {
-              "start": 113,
-              "insert": 113,
+              "start": 5,
+              "insert": 5,
               "offset": " ",
               "indent": 0,
               "comment": null
             },
             "item_type": "function",
-            "length": 4,
+            "length": 9,
+            "docLength": null
+          },
+          {
+            "id": "095b8263-56c3-b28d-824f-9da0c4cf4caf",
+            "ancestors": [],
+            "description": "Retrieves a user's articles from the unofficial Medium API, extracts article details, and formats them into a JSON response. It also saves the formatted posts to storage and returns a success message if successful, or an error message with details if there is an issue.",
+            "params": [
+              {
+                "name": "request",
+                "default_value": null,
+                "optional": false,
+                "type_name": "Request",
+                "description": "Used to handle HTTP requests."
+              }
+            ],
+            "returns": {
+              "type_name": "any",
+              "description": "A JSON object containing two properties: `message` and `posts`. The `message` property has a string value indicating success or failure, while the `posts` property contains an array of formatted posts."
+            },
+            "usage": {
+              "language": "javascript",
+              "code": "GET('/medium-api', {\n    method: 'GET',\n});\n",
+              "description": ""
+            },
+            "name": "GET",
+            "location": {
+              "start": 15,
+              "insert": 15,
+              "offset": " ",
+              "indent": 0,
+              "comment": null
+            },
+            "item_type": "function",
+            "length": 92,
+            "docLength": null
+          },
+          {
+            "id": "d0ed889c-4f7e-3b9f-a948-914f1dbb02a3",
+            "ancestors": [
+              "095b8263-56c3-b28d-824f-9da0c4cf4caf"
+            ],
+            "description": "Formats posts.",
+            "name": null,
+            "location": {
+              "start": 85,
+              "insert": 86,
+              "offset": " ",
+              "indent": 6,
+              "comment": null
+            },
+            "item_type": "higher_order_invocation",
+            "length": 12,
             "docLength": null
           }
         ]
