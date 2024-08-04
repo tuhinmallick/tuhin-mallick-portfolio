@@ -4,7 +4,7 @@ const resumeContent = [
   {
     jobPosition: `Head of Artificial Intelligence and Data`,
     jobType: `Hamburg, Germany | Onsite`,
-    jobDuration: `August 2023 - Present`,
+    jobDuration: `November 2023 - Present`,
     timeDuraton: `Fulltime`,
     compnayName: "JULIE & GRACE GmbH",
     jobDescription: `• Leading AI initiatives to drive innovation in the fine jewelry e-commerce sector.
@@ -15,7 +15,7 @@ const resumeContent = [
   {
     jobPosition: `Applied Data Scientist and Engineer`,
     jobType: `Hamburg, Germany | Onsite`,
-    jobDuration: `September 2022 - July 2023`,
+    jobDuration: `April 2023 - October 2023`,
     timeDuraton: `Fulltime`,
     compnayName: "VOIDS Technology GmbH",
     jobDescription: `• Developed advanced demand forecasting models to balance supply and demand for e-commerce brands.
