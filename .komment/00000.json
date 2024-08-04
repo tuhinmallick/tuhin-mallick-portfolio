@@ -195,26 +195,26 @@
     "path": "components/resume/ResumeAnimation.jsx",
     "content": {
       "structured": {
-        "description": "A React component called Resume that displays an individual's work experience and education in a formatted layout. The code utilizes a Skills component from a separate module (Skills) to display skills information. It also employs AOS (Animate on Scroll) for adding animations to elements when scrolling into view.",
+        "description": "A reusable React component called \"Resume\" that displays a person's work experience and education in a structured format. The component uses a Skills component from another module (Skills) to display technical skills. It also utilizes CSS classes and data-aos animations to enhance the visual presentation of the resume content.",
         "items": [
           {
-            "id": "6c632076-0b50-a09c-884c-a1652ca6d03f",
+            "id": "d810693a-4702-3d8d-e943-39c282576ba1",
             "ancestors": [],
-            "description": "Renders a resume section with two parts: experience and education & skills. It maps through arrays of objects to display job experiences, educational details, and skills in separate sections using React components and CSS styling.",
+            "description": "Renders a React component for displaying resume information, including experience and education sections. It maps over arrays to generate dynamic content and uses CSS classes and AOS animations for styling and visual effects.",
             "params": [],
             "returns": {
               "type_name": "JSX.Element",
-              "description": "A React component that represents a section of an individual's resume, including experience and education information."
+              "description": "A React component that renders a section with id \"resume\". This section includes an experience section and an education & skills section."
             },
             "usage": {
               "language": "javascript",
-              "code": "const resumeContent = [\n    {\n        jobPosition: \"Software Engineer\",\n        jobType: \"Full-time\",\n        jobDuration: \"2020-2022\",\n        timeDuraton: \"1 year and 6 months\"\n    },\n    {\n        jobPosition: \"Junior Developer\",\n        jobType: \"Part-time\",\n        jobDuration: \"2018-2020\",\n        timeDuraton: \"2 years\"\n    }\n];\n\nconst educatonContent = [\n    {\n        passingYear: \"2022\",\n        degreeTitle: \"Bachelor of Science in Computer Science\",\n        instituteName: \"University of California, Los Angeles\",\n        courseLink: \"#\",\n        instituteLink: \"#\"\n    }\n];\n\nconst resumeElement = <Resume resumeContent={resumeContent} educatonContent={educatonContent}/>;\n",
+              "code": "const resume = <Resume />;\nReactDOM.render(resume, document.getElementById(\"root\"));",
               "description": ""
             },
             "name": "Resume",
             "location": {
-              "start": 94,
-              "insert": 94,
+              "start": 95,
+              "insert": 95,
               "offset": " ",
               "indent": 0,
               "comment": null
