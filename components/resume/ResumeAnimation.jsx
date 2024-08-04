@@ -12,16 +12,17 @@ const resumeContent = [
     • Demonstrating how AI is disrupting industries faster than fast fashion, enhancing operational efficiency, and improving customer experiences.`,
     delayAnimation: "",
   },
-  // {
-  //   jobPosition: `Master Thesis Student`,
-  //   jobType: `Mannheim, Germany | Onsite`,
-  //   jobDuration: `Sep 2022 - August 2023`,
-  //   timeDuraton: `Fulltime`,
-  //   compnayName: "Image Data Exploration and Analysis Lab",
-  //   jobDescription: `• Conducted advanced research in image data exploration and analysis.
-  //   • Developed innovative algorithms to enhance image processing capabilities.`,
-  //   delayAnimation: "100",
-  // },
+  {
+    jobPosition: `Applied Data Scientist and Engineer`,
+    jobType: `Hamburg, Germany | Onsite`,
+    jobDuration: `September 2022 - July 2023`,
+    timeDuraton: `Fulltime`,
+    compnayName: "VOIDS Technology GmbH",
+    jobDescription: `• Developed advanced demand forecasting models to balance supply and demand for e-commerce brands.
+    • Automated multi-channel demand forecasting, improving accuracy and boosting profitability.
+    • Integrated marketing and supply chain data to provide actionable insights and streamline operations.`,
+    delayAnimation: "100",
+  },
   {
     jobPosition: `Data Scientist`,
     jobType: `Mannheim, Germany | Onsite`,
@@ -33,7 +34,7 @@ const resumeContent = [
     • Improved model accuracy by 17% using stacked ensemble and Meta-Learning.
     • Developed a back-testing algorithm with walk-forward validation, boosting client confidence in model stability and accuracy.
     • Increased model accuracy by 31% through bootstrapping confidence intervals and automated hyperparameter optimization with HyperOpt.`,
-    delayAnimation: "100",
+    delayAnimation: "200",
   },
   // {
   //   jobPosition: `Computer Vision Research Assistant`,
@@ -63,7 +64,7 @@ const resumeContent = [
     compnayName: "Tata Consultancy Services Limited",
     jobDescription: `• Developed and implemented logic in Java using frameworks like Struts2 and Spring.
     • Created web pages with UI layout and front-end programming, including validations using jQuery.`,
-    delayAnimation: "200",
+    delayAnimation: "300",
   },
 ];
 
