@@ -2,58 +2,68 @@ import Skills from "../skills/Skills";
 
 const resumeContent = [
   {
-    jobPosition: `Master Thesis student`,
-    jobType: `Mannheim, Germany | Onsite`,
-    jobDuration: `Sep 2022 - Present`,
+    jobPosition: `Head of Artificial Intelligence and Data`,
+    jobType: `Hamburg, Germany | Onsite`,
+    jobDuration: `August 2023 - Present`,
     timeDuraton: `Fulltime`,
-    compnayName: "Image Data Exploration and Analysis Lab",
-    jobDescription: ``,
+    compnayName: "JULIE & GRACE GmbH",
+    jobDescription: `• Leading AI initiatives to drive innovation in the fine jewelry e-commerce sector.
+    • Implementing AI solutions to augment lean management processes, aiming to achieve 100% AI integration from a 100% vertically integrated model.
+    • Demonstrating how AI is disrupting industries faster than fast fashion, enhancing operational efficiency, and improving customer experiences.`,
     delayAnimation: "",
   },
+  // {
+  //   jobPosition: `Master Thesis Student`,
+  //   jobType: `Mannheim, Germany | Onsite`,
+  //   jobDuration: `Sep 2022 - August 2023`,
+  //   timeDuraton: `Fulltime`,
+  //   compnayName: "Image Data Exploration and Analysis Lab",
+  //   jobDescription: `• Conducted advanced research in image data exploration and analysis.
+  //   • Developed innovative algorithms to enhance image processing capabilities.`,
+  //   delayAnimation: "100",
+  // },
   {
     jobPosition: `Data Scientist`,
     jobType: `Mannheim, Germany | Onsite`,
     jobDuration: `Nov 2021 - August 2022`,
     timeDuraton: `Intern`,
     compnayName: "Chemovator GmbH",
-    jobDescription: `• Implemented MlOps through MlFlow which allowed automated model development lifecycle and reduced time for model reproduction by 25%.
-    • Demystified AI black box model by implementing explainable AI through feature importance and SHAP
-• Implemented stacked ensemble and improved model accuracy by 17% by using Meta-Learning.
-• Implemented back testing algorithm through walk-forward validation which helped client gained confidence of the model stability and accuracy
-• Implemented bootstrapping confidence interval and automated hyperparameter optimization through HyperOpt which increased model accuracy by 31%`,
+    jobDescription: `• Implemented MlOps through MlFlow, reducing model reproduction time by 25%.
+    • Enhanced AI model transparency using explainable AI techniques such as feature importance and SHAP.
+    • Improved model accuracy by 17% using stacked ensemble and Meta-Learning.
+    • Developed a back-testing algorithm with walk-forward validation, boosting client confidence in model stability and accuracy.
+    • Increased model accuracy by 31% through bootstrapping confidence intervals and automated hyperparameter optimization with HyperOpt.`,
     delayAnimation: "100",
   },
+  // {
+  //   jobPosition: `Computer Vision Research Assistant`,
+  //   jobType: `Erlangen, Germany | Onsite`,
+  //   jobDuration: `February 2021 – November 2021`,
+  //   timeDuraton: `Part Time`,
+  //   compnayName: "Institute of Factory Automation and Production Systems",
+  //   jobDescription: `• Automated screw separation using PyTorch and Deep Object Pose Estimation (DOPE) with YOLO to determine 6-DoF screw positions in load carriers.
+  //   • Generated synthetic training datasets using Unreal Engine (UE4) and NVidia Deep Learning Data Synthesizer (NDDS).`,
+  //   delayAnimation: "300",
+  // },
+  // {
+  //   jobPosition: `Machine Learning Research Assistant`,
+  //   jobType: `Erlangen, Germany | Onsite`,
+  //   jobDuration: `Mar 2020 - Present`,
+  //   timeDuraton: `Part Time`,
+  //   compnayName: "Machine Learning and Data Analytics (MaD) Lab",
+  //   jobDescription: `• Developed online handwriting recognition systems for IMU-enhanced ballpoint pens using machine learning.
+  //   • Achieved up to 90% accuracy for writer-dependent tasks and 83% for writer-independent tasks for uppercase letters.`,
+  //   delayAnimation: "400",
+  // },
   {
-    jobPosition: `Computer vision research assistant`,
-    jobType: `Erlangen, Germany | Onsite`,
-    jobDuration: `February 2021 – November 2021`,
-    timeDuraton: `Part Time`,
-    compnayName: "Institute of Factory Automation and Production Systems",
-    jobDescription: `• Automated screw separation, using PyTorch and Deep Object Pose Estimation (DOPE) with YOLO to determine 6-DoF screw in the load carrier.
-• Generate synthetic training data sets using the Unreal Engine (UE4) and NVidia Deep Learning Data Synthesizer (NDDS).`,
-    delayAnimation: "200",
-  },
-  {
-    jobPosition: `Machine learning research assistant`,
-    jobType: ` Erlangen, Germany | Onsite`,
-    jobDuration: `Mar 2020 - Present`,
-    timeDuraton: `Part Time`,
-    compnayName: "Machine Learning and Data Analytics (MaD) Lab",
-    jobDescription: `
-    • Online handwriting recognition of IMU-enhanced ballpoint pens with machine learning
-    • Deliver accuracies of up to 90% for the writer dependent task and 83% for the writer independent task for uppercase letters`,
-    delayAnimation: "300",
-  },
-  {
-    jobPosition: `Java web developer`,
+    jobPosition: `Java Web Developer`,
     jobType: `Kolkata, India | Onsite`,
     jobDuration: `November 2018 – September 2020`,
     timeDuraton: `Full Time`,
     compnayName: "Tata Consultancy Services Limited",
-    jobDescription: ` 
-    • Development and logic building in java using frameworks like struts2 and spring and SQL query generation 
-    • Developing web pages along the UI layout and front-end programming with validations using jQuery`,
-    delayAnimation: "400",
+    jobDescription: `• Developed and implemented logic in Java using frameworks like Struts2 and Spring.
+    • Created web pages with UI layout and front-end programming, including validations using jQuery.`,
+    delayAnimation: "200",
   },
 ];
 
