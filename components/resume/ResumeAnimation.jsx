@@ -4,7 +4,7 @@ const resumeContent = [
   {
     jobPosition: `Head of Artificial Intelligence and Data`,
     jobType: `Hamburg, Germany | Onsite`,
-    jobDuration: `August 2023 - Present`,
+    jobDuration: `November 2023 - Present`,
     timeDuraton: `Fulltime`,
     compnayName: "JULIE & GRACE GmbH",
     jobDescription: `• Leading AI initiatives to drive innovation in the fine jewelry e-commerce sector.
@@ -15,7 +15,7 @@ const resumeContent = [
   {
     jobPosition: `Applied Data Scientist and Engineer`,
     jobType: `Hamburg, Germany | Onsite`,
-    jobDuration: `September 2022 - July 2023`,
+    jobDuration: `April 2023 - October 2023`,
     timeDuraton: `Fulltime`,
     compnayName: "VOIDS Technology GmbH",
     jobDescription: `• Developed advanced demand forecasting models to balance supply and demand for e-commerce brands.
@@ -93,12 +93,15 @@ const educatonContent = [
 ];
 
 /**
- * @description Renders a React component for displaying resume information, including
- * experience and education sections. It maps over arrays to generate dynamic content
- * and uses CSS classes and AOS animations for styling and visual effects.
+ * @description Renders a section for displaying experience and education/skills
+ * information. It maps through arrays of objects, iterating over each object to
+ * generate HTML elements for job positions, companies, job descriptions, educational
+ * degrees, and skills. The function uses ReactJS components and CSS animations for
+ * visual effects.
  * 
- * @returns {JSX.Element} A React component that renders a section with id "resume".
- * This section includes an experience section and an education & skills section.
+ * @returns {JSX.Element} A React component that renders an HTML section element
+ * containing a title and various child elements representing experience, education,
+ * and skills information.
  */
 const Resume = () => {
   return (
