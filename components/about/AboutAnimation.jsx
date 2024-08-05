@@ -37,7 +37,7 @@ const About = () => {
                 {/* End img */}
                 <div className="info">
                   <p>Data Science Generalist</p>
-                  <h3>Tuhin Mallickt</h3>
+                  <h3>Tuhin Mallick</h3>
                 </div>
                 {/* End info */}
               </div>
@@ -163,7 +163,7 @@ const About = () => {
           {/* End separated */}
 
           <div className="title">
-            <h3>Awards.</h3>
+            <h3>Certifications.</h3>
           </div>
 
           <Awards />
