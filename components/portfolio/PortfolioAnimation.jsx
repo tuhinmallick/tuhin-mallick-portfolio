@@ -18,14 +18,14 @@ const tabList = ["All", "Branding", "Photography", "Fashion", "Product"];
 const tabListContent = [
   {
     categories: ["Branding", "Fashion"],
-    img: "/img/portfolio/m-portfolio-1.jpg",
+    img: "/img/portfolio/qr-gpt.png",
     width: 400,
     height: 550,
-    title: "Bottle Illustration",
-    subTitle: "Figma Shoot",
-    alterText: "Bottle Illustration",
+    title: "QrGPT",
+    subTitle: "Generate your next AI QR Code in seconds",
+    alterText: "Qr-GPT",
     portfolioLink:
-      "https://dribbble.com/shots/16529339-Beny-Personal-Portfolio-React-Template",
+      "https://qr-gpt.tuhinmallick.com/",
   },
   {
     categories: ["Branding", "Photography"],
