@@ -195,20 +195,20 @@
     "path": "components/resume/ResumeAnimation.jsx",
     "content": {
       "structured": {
-        "description": "A React component named Resume that renders an individual's work experience and education details. The component uses the Skills component from another file (Skills) to display technical skills. It fetches data from predefined arrays containing job positions, company names, and descriptions for each job, as well as educational degrees, institute names, and dates for each degree.",
+        "description": "A Resume component that displays a list of work experiences and educational backgrounds. The experiences are displayed in a card-like layout with job title, company name, duration, and job description. The education section lists degree titles, passing years, and institute names. The code uses React for the UI and CSS for styling.",
         "items": [
           {
-            "id": "47ccea21-77c4-18b5-2d47-85f34aede7ae",
+            "id": "e330c1c3-0952-919e-b545-bcde86e7f66c",
             "ancestors": [],
-            "description": "Renders a section for displaying experience and education/skills information. It maps through arrays of objects, iterating over each object to generate HTML elements for job positions, companies, job descriptions, educational degrees, and skills. The function uses ReactJS components and CSS animations for visual effects.",
+            "description": "Renders a resume section with experience and education details. It takes an array of objects as props, maps over them to generate individual rows for each job and education item, and applies animations using AOS library.",
             "params": [],
             "returns": {
               "type_name": "JSX.Element",
-              "description": "A React component that renders an HTML section element containing a title and various child elements representing experience, education, and skills information."
+              "description": "A React element that represents an HTML section with id \"resume\". The section contains a container with title and resume boxes, as well as separate sections for education and skills."
             },
             "usage": {
               "language": "javascript",
-              "code": "const resumeContent = [\n    {\n        jobPosition: \"Job Title\",\n        jobType: \"Full-time\",\n        jobDuration: \"Jan 2020 - Present\",\n        timeDuraton: \"2 years 5 months\",\n        companyName: \"Company Name\",\n        jobDescription: \"Job Description\"\n    },\n    // More entries...\n];\n\nconst educationContent = [\n    {\n        passingYear: \"2018\",\n        degreeTitle: \"Bachelor of Science in Computer Engineering\",\n        courseLink: \"#\",\n        instituteName: \"Institute Name\",\n        instituteLink: \"#\"\n    },\n    // More entries...\n];\n\n<Resume resumeContent={resumeContent} educationContent={educationContent} />",
+              "code": "<Resume resumeContent={resumeData} educationContent={educationData}/>",
               "description": ""
             },
             "name": "Resume",

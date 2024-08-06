@@ -28,7 +28,7 @@ const resumeContent = [
     jobType: `Mannheim, Germany | Onsite`,
     jobDuration: `Nov 2021 - August 2022`,
     timeDuraton: `Intern`,
-    compnayName: "Chemovator GmbH",
+    compnayName: "BASF SE",
     jobDescription: `• Implemented MlOps through MlFlow, reducing model reproduction time by 25%.
     • Enhanced AI model transparency using explainable AI techniques such as feature importance and SHAP.
     • Improved model accuracy by 17% using stacked ensemble and Meta-Learning.
@@ -93,15 +93,13 @@ const educatonContent = [
 ];
 
 /**
- * @description Renders a section for displaying experience and education/skills
- * information. It maps through arrays of objects, iterating over each object to
- * generate HTML elements for job positions, companies, job descriptions, educational
- * degrees, and skills. The function uses ReactJS components and CSS animations for
- * visual effects.
+ * @description Renders a resume section with experience and education details. It
+ * takes an array of objects as props, maps over them to generate individual rows for
+ * each job and education item, and applies animations using AOS library.
  * 
- * @returns {JSX.Element} A React component that renders an HTML section element
- * containing a title and various child elements representing experience, education,
- * and skills information.
+ * @returns {JSX.Element} A React element that represents an HTML section with id
+ * "resume". The section contains a container with title and resume boxes, as well
+ * as separate sections for education and skills.
  */
 const Resume = () => {
   return (
