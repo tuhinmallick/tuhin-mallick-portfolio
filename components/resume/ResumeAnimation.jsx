@@ -28,7 +28,7 @@ const resumeContent = [
     jobType: `Mannheim, Germany | Onsite`,
     jobDuration: `Nov 2021 - August 2022`,
     timeDuraton: `Intern`,
-    compnayName: "Chemovator GmbH",
+    compnayName: "BASF SE",
     jobDescription: `• Implemented MlOps through MlFlow, reducing model reproduction time by 25%.
     • Enhanced AI model transparency using explainable AI techniques such as feature importance and SHAP.
     • Improved model accuracy by 17% using stacked ensemble and Meta-Learning.
