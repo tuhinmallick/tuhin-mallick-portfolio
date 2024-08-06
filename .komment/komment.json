@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": "1",
-    "updated_at": "2024-08-06T13:56:48.827Z",
+    "updated_at": "2024-08-06T14:02:55.415Z",
     "created_at": "2024-07-24T16:01:29.667Z",
     "pipelines": [
       "d2199499-5c83-4f40-8cad-e38bfb163234",
@@ -14,7 +14,8 @@
       "be321407-9be4-4957-a416-0cc2fa47a1b0",
       "57a39b10-29b4-4cbb-9247-c1c14d210750",
       "a4c1373c-f2dc-48a0-b53c-3f5e42168bda",
-      "61eaea01-daf6-484a-80ff-95e5616e0a83"
+      "61eaea01-daf6-484a-80ff-95e5616e0a83",
+      "0311922c-1a94-4ecb-bc69-004f0b4b91e5"
     ]
   },
   "lookup": [
@@ -22,7 +23,8 @@
       "app/api/medium-posts/route.js",
       "utlis/fetchMediumPosts.js",
       "components/blog/BlogAnimation.jsx",
-      "components/resume/ResumeAnimation.jsx"
+      "components/resume/ResumeAnimation.jsx",
+      "components/portfolio/PortfolioAnimation.jsx"
     ]
   ]
 }

@@ -18,14 +18,14 @@ const tabList = ["All", "Branding", "Photography", "Fashion", "Product"];
 const tabListContent = [
   {
     categories: ["Branding", "Fashion"],
-    img: "/img/portfolio/m-portfolio-1.jpg",
+    img: "/img/portfolio/qr-gpt.png",
     width: 400,
     height: 550,
-    title: "Bottle Illustration",
-    subTitle: "Figma Shoot",
-    alterText: "Bottle Illustration",
+    title: "QrGPT",
+    subTitle: "Generate your next AI QR Code in seconds",
+    alterText: "Qr-GPT",
     portfolioLink:
-      "https://dribbble.com/shots/16529339-Beny-Personal-Portfolio-React-Template",
+      "https://qr-gpt.tuhinmallick.com/",
   },
   {
     categories: ["Branding", "Photography"],
@@ -116,10 +116,20 @@ const tabListContent = [
   },
 ];
 
+/**
+ * @description Filters a list of portfolio items based on a selected tab and displays
+ * them in a Masonry grid layout with hover effects, animation, and links to external
+ * pages.
+ * 
+ * @returns {JSX.Element} A React component representing a portfolio filtering system
+ * with tabs and gallery items.
+ */
 const PortfolioAnimation = () => {
   const [currentTab, setCurrentTab] = useState(tabList[0]);
   const [filteredItems, setFilteredItems] = useState(tabListContent);
   useEffect(() => {
+    // Filters items based on current tab.
+
     if (currentTab == "All") {
       setFilteredItems(tabListContent);
     } else {

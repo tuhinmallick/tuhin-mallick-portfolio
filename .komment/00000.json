@@ -226,5 +226,60 @@
         ]
       }
     }
+  },
+  {
+    "name": "PortfolioAnimation.jsx",
+    "path": "components/portfolio/PortfolioAnimation.jsx",
+    "content": {
+      "structured": {
+        "description": "A React component, PortfolioAnimation, which generates a portfolio gallery with filtering capabilities. It utilizes the Photoswipe Gallery library for image zooming and the Masonry layout package for grid-based layout. The component fetches data from an array of objects, each representing a portfolio item, and renders them in a responsive grid with filtering options based on categories.",
+        "items": [
+          {
+            "id": "a39a590b-33c4-3e95-a047-a9a2f96cc501",
+            "ancestors": [],
+            "description": "Filters a list of portfolio items based on a selected tab and displays them in a Masonry grid layout with hover effects, animation, and links to external pages.",
+            "params": [],
+            "returns": {
+              "type_name": "JSX.Element",
+              "description": "A React component representing a portfolio filtering system with tabs and gallery items."
+            },
+            "usage": {
+              "language": "javascript",
+              "code": "const tabList = ['All', 'Category1', 'Category2'];\nconst tabListContent = [...]; // assume some data here\nconst portfolioAnimation = <PortfolioAnimation tabList={tabList} tabListContent={tabListContent} />;",
+              "description": ""
+            },
+            "name": "PortfolioAnimation",
+            "location": {
+              "start": 119,
+              "insert": 119,
+              "offset": " ",
+              "indent": 0,
+              "comment": null
+            },
+            "item_type": "function",
+            "length": 100,
+            "docLength": null
+          },
+          {
+            "id": "1502a99b-97ab-ae94-1d41-09ff4c0a6afe",
+            "ancestors": [
+              "a39a590b-33c4-3e95-a047-a9a2f96cc501"
+            ],
+            "description": "Filters items based on current tab.",
+            "name": null,
+            "location": {
+              "start": 122,
+              "insert": 123,
+              "offset": " ",
+              "indent": 4,
+              "comment": null
+            },
+            "item_type": "higher_order_invocation",
+            "length": 10,
+            "docLength": null
+          }
+        ]
+      }
+    }
   }
 ]
