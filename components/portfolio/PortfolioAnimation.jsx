@@ -29,14 +29,14 @@ const tabListContent = [
   },
   {
     categories: ["Branding", "Photography"],
-    img: "/img/portfolio/m-portfolio-2.jpg",
+    img: "/img/portfolio/interiorDesignGPT.png",
     width: 400,
     height: 400,
-    title: "E-Learning App",
-    subTitle: "Nuna ios App",
-    alterText: "Illustration",
+    title: "interiorDesignGPT",
+    subTitle: "Generating dream rooms using AI for everyone.Nuna ios App",
+    alterText: "interiorDesignGPT",
     portfolioLink:
-      "https://dribbble.com/shots/16529350-Nairo-Personal-Portfolio-React-Template",
+      "https://interiordesigngpt.tuhinmallick.com/",
   },
   {
     categories: ["Photography", "Product"],
