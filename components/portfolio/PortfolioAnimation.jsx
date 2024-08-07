@@ -40,14 +40,14 @@ const tabListContent = [
   },
   {
     categories: ["Photography", "Product"],
-    img: "/img/portfolio/m-portfolio-3.jpg",
+    img: "/img/portfolio/artbytext.png",
     width: 400,
     height: 700,
-    title: "Visual Design",
-    subTitle: "Themeforest Marke",
-    alterText: "Business Mockup",
+    title: "Art by Text",
+    subTitle: "Edit your photos using written instructions, with the help of an AI.",
+    alterText: "Art by Text",
     portfolioLink:
-      "https://dribbble.com/shots/16529407-Deski-Saas-Software-React-Template",
+      "https://artbytext.tuhinmallick.com/",
   },
   {
     categories: ["Branding", "Fashion"],
