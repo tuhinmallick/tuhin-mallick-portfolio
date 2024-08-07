@@ -40,14 +40,14 @@ const tabListContent = [
   },
   {
     categories: ["Photography", "Product"],
-    img: "/img/portfolio/m-portfolio-3.jpg",
+    img: "/img/portfolio/artbytext.png",
     width: 400,
     height: 700,
-    title: "Visual Design",
-    subTitle: "Themeforest Marke",
-    alterText: "Business Mockup",
+    title: "Art by Text",
+    subTitle: "Edit your photos using written instructions, with the help of an AI.",
+    alterText: "Art by Text",
     portfolioLink:
-      "https://dribbble.com/shots/16529407-Deski-Saas-Software-React-Template",
+      "https://artbytext.tuhinmallick.com/",
   },
   {
     categories: ["Branding", "Fashion"],
@@ -117,18 +117,18 @@ const tabListContent = [
 ];
 
 /**
- * @description Renders a portfolio gallery with filtering options based on categories.
- * It updates the filtered items when the selected category changes, displaying
- * corresponding portfolio items with their details and images.
+ * @description Filters and displays a list of portfolio items based on the currently
+ * selected tab from a list of tabs. It uses React state to store the current tab and
+ * filtered item list, and updates these states when the current tab changes.
  * 
- * @returns {JSX.Element} A React component representing a portfolio filter with tabs
- * and a gallery of items filtered based on the current tab selection.
+ * @returns {JSX.Element} A React component that represents a portfolio filtering and
+ * gallery display.
  */
 const PortfolioAnimation = () => {
   const [currentTab, setCurrentTab] = useState(tabList[0]);
   const [filteredItems, setFilteredItems] = useState(tabListContent);
   useEffect(() => {
-    // Filters items based on current tab.
+    // Filters tab content based on current tab.
 
     if (currentTab == "All") {
       setFilteredItems(tabListContent);
