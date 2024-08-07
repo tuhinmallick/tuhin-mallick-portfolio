@@ -29,14 +29,14 @@ const tabListContent = [
   },
   {
     categories: ["Branding", "Photography"],
-    img: "/img/portfolio/m-portfolio-2.jpg",
+    img: "/img/portfolio/interiorDesignGPT.png",
     width: 400,
     height: 400,
-    title: "E-Learning App",
-    subTitle: "Nuna ios App",
-    alterText: "Illustration",
+    title: "interiorDesignGPT",
+    subTitle: "Generating dream rooms using AI for everyone.Nuna ios App",
+    alterText: "interiorDesignGPT",
     portfolioLink:
-      "https://dribbble.com/shots/16529350-Nairo-Personal-Portfolio-React-Template",
+      "https://interiordesigngpt.tuhinmallick.com/",
   },
   {
     categories: ["Photography", "Product"],
@@ -117,12 +117,12 @@ const tabListContent = [
 ];
 
 /**
- * @description Filters a list of portfolio items based on a selected tab and displays
- * them in a Masonry grid layout with hover effects, animation, and links to external
- * pages.
+ * @description Renders a portfolio gallery with filtering options based on categories.
+ * It updates the filtered items when the selected category changes, displaying
+ * corresponding portfolio items with their details and images.
  * 
- * @returns {JSX.Element} A React component representing a portfolio filtering system
- * with tabs and gallery items.
+ * @returns {JSX.Element} A React component representing a portfolio filter with tabs
+ * and a gallery of items filtered based on the current tab selection.
  */
 const PortfolioAnimation = () => {
   const [currentTab, setCurrentTab] = useState(tabList[0]);

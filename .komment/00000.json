@@ -232,21 +232,21 @@
     "path": "components/portfolio/PortfolioAnimation.jsx",
     "content": {
       "structured": {
-        "description": "A React component, PortfolioAnimation, which generates a portfolio gallery with filtering capabilities. It utilizes the Photoswipe Gallery library for image zooming and the Masonry layout package for grid-based layout. The component fetches data from an array of objects, each representing a portfolio item, and renders them in a responsive grid with filtering options based on categories.",
+        "description": "A React component called `PortfolioAnimation` that renders a portfolio page displaying various projects with images and links. It uses the `Gallery`, `Masonry`, and `Item` components from `react-photoswipe-gallery` and `next/image` to display and manage the image content. The component also employs state management using `useState` and `useEffect` hooks to dynamically filter and update the displayed projects based on a selected tab.",
         "items": [
           {
-            "id": "a39a590b-33c4-3e95-a047-a9a2f96cc501",
+            "id": "11e12677-6876-2dba-154f-b09278a79177",
             "ancestors": [],
-            "description": "Filters a list of portfolio items based on a selected tab and displays them in a Masonry grid layout with hover effects, animation, and links to external pages.",
+            "description": "Renders a portfolio gallery with filtering options based on categories. It updates the filtered items when the selected category changes, displaying corresponding portfolio items with their details and images.",
             "params": [],
             "returns": {
               "type_name": "JSX.Element",
-              "description": "A React component representing a portfolio filtering system with tabs and gallery items."
+              "description": "A React component representing a portfolio filter with tabs and a gallery of items filtered based on the current tab selection."
             },
             "usage": {
               "language": "javascript",
-              "code": "const tabList = ['All', 'Category1', 'Category2'];\nconst tabListContent = [...]; // assume some data here\nconst portfolioAnimation = <PortfolioAnimation tabList={tabList} tabListContent={tabListContent} />;",
-              "description": ""
+              "code": "const tabList = [\"All\", \"Category1\", \"Category2\"];\nconst tabListContent = [...];\n\nconst portfolioAnimation = <PortfolioAnimation />;\n",
+              "description": "\n\nThis example creates a new instance of `PortfolioAnimation` component and assigns it to the `portfolioAnimation` variable."
             },
             "name": "PortfolioAnimation",
             "location": {
@@ -261,9 +261,9 @@
             "docLength": null
           },
           {
-            "id": "1502a99b-97ab-ae94-1d41-09ff4c0a6afe",
+            "id": "1a8b5c45-5e66-fdab-224d-9ea95146a9b4",
             "ancestors": [
-              "a39a590b-33c4-3e95-a047-a9a2f96cc501"
+              "11e12677-6876-2dba-154f-b09278a79177"
             ],
             "description": "Filters items based on current tab.",
             "name": null,
