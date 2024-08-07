@@ -1,0 +1,45 @@
+# General settings for all web crawlers
+User-agent: *
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /test/
+Disallow: /admin/
+Disallow: /cgi-bin/
+Disallow: /scripts/
+Disallow: /config/
+
+# Allow search engines to access the main content
+Allow: /
+
+# Block specific file types from being indexed
+Disallow: /*.php$
+Disallow: /*.cgi$
+Disallow: /*.pl$
+Disallow: /*.py$
+Disallow: /*.sh$
+
+# Block access to specific URL parameters
+Disallow: /*?sessionid=
+Disallow: /*?sort=
+Disallow: /*?filter=
+
+# Specify the location of the sitemap
+Sitemap: https://www.tuhinmallick.com/sitemap.xml
+
+# Additional settings for specific web crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Block specific crawlers (if necessary)
+User-agent: BadBot
+Disallow: /
+
+# Crawl-delay settings (if needed to manage server load)
+User-agent: *
+Crawl-delay: 10
