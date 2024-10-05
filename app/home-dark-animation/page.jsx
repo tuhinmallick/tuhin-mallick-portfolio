@@ -87,23 +87,6 @@ const HomeOne = () => {
             profession: "Head of AI",
             specialties: ["Data-driven decisions", "Pattern recognition"]
           },
-          theme: {
-            '--chat--color-primary': '#ff4c60',
-            '--chat--color-secondary': '#20b69e',
-            '--chat--color-dark': '#101030',
-            '--chat--color-light': '#ffffff',
-            '--chat--color-medium': '#6c757d',
-            '--chat--message--bot--color': '#333333',
-            '--chat--message--user--color': '#ffffff',
-            '--chat--message--bot--background': '#f0f0f0',
-            '--chat--message--user--background': '#ff4c60',
-            '--chat--header--background': '#101030',
-            '--chat--header--color': '#ffffff',
-            '--chat--toggle--background': '#ff4c60',
-            '--chat--toggle--color': '#ffffff',
-            '--chat--window--width': '350px',
-            '--chat--window--height': '500px',
-          },
         });
         console.log('Chat initialized successfully');
       } catch (error) {
