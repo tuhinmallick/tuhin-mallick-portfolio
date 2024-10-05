@@ -65,7 +65,7 @@ const HomeOne = () => {
           webhookUrl: 'https://n8n-n8n.xuity6.easypanel.host/webhook/f406671e-c954-4691-b39a-66c90aa2f103/chat',
           mode: chatMode,  // Toggle between 'fullscreen' and 'window' mode
           target: '#n8n-chat-container',
-          showWindowCloseButton: true,
+          showWindowCloseButton: false,
           showWelcomeScreen: true,
           defaultLanguage: 'en',
           initialMessages: [
