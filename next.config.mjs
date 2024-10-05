@@ -11,6 +11,7 @@ const nextConfig = {
   env: {
     MEDIUM_ACCESS_TOKEN: process.env.MEDIUM_ACCESS_TOKEN,
   },
+  transpilePackages: ['@n8n/chat'],
 };
 
 export default nextConfig;
