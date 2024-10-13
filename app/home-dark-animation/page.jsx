@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import '@n8n/chat/style.css';
 import { createChat } from '@n8n/chat';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faExpand, faCompress } from '@fortawesome/free-solid-svg-icons';  // Icons for fullscreen and compress
+import { faExpand, faCompress } from '@fortawesome/free-solid-svg-icons';
 
 import Header from "@/components/header/Header";
 import Slider from "@/components/slider/SliderAnimation";
@@ -20,50 +20,43 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const HomeOne = () => {
-  const [chatMode, setChatMode] = useState('window');  // State to track fullscreen or window mode
-  const [icon, setIcon] = useState(faExpand);  // Default icon for fullscreen
+  const [isFullscreen, setIsFullscreen] = useState(false); // State to track fullscreen mode
+  const [icon, setIcon] = useState(faExpand); // Default icon for fullscreen
 
   useEffect(() => {
-    console.log('Rendering Chat Mode:', chatMode); // Debug log
+    console.log('Initializing Chat');
 
     const root = document.documentElement;
 
-    // Primary and secondary colors
+    // Set CSS variables
     root.style.setProperty('--chat--color-primary', '#FF9301');
     root.style.setProperty('--chat--color-secondary', '#FF8533');
     root.style.setProperty('--chat--color-dark', '#1A1A1A');
     root.style.setProperty('--chat--color-light', '#FFFFFF');
-    root.style.setProperty('--chat--color-typing', '#ffffff'); // Added typing color
+    root.style.setProperty('--chat--color-typing', '#ffffff');
 
-    // Chat container styles
     root.style.setProperty('--chat--border-radius', '0.75rem');
     root.style.setProperty('--chat--spacing', '0.5rem');
     root.style.setProperty('--chat--textarea--height', '50px');
     root.style.setProperty('--chat--window--width', '400px');
     root.style.setProperty('--chat--window--height', '600px');
 
-    // Bot message styles
     root.style.setProperty('--chat--message--bot--background', '#2C2C2C');
     root.style.setProperty('--chat--message--bot--color', '#FFFFFF');
 
-    // User message styles
     root.style.setProperty('--chat--message--user--background', '#FF9301');
     root.style.setProperty('--chat--message--user--color', '#FFFFFF');
     root.style.setProperty('--chat--message--font-size', '0.75rem');
 
-    // Header styles
     root.style.setProperty('--chat--header--background', '#000000');
     root.style.setProperty('--chat--header--color', '#FFFFFF');
 
-    // Optional: Adjust window size for default mode
-    root.style.setProperty('--chat--window--width', '400px');
-    root.style.setProperty('--chat--window--height', '600px');
-
+    // Initialize the chat only once
     const initChat = async () => {
       try {
         await createChat({
           webhookUrl: 'https://n8n-n8n.xuity6.easypanel.host/webhook/f406671e-c954-4691-b39a-66c90aa2f103/chat',
-          mode: chatMode,  // Toggle between 'fullscreen' and 'window' mode
+          mode: 'window', // Set to 'window' as default
           target: '#n8n-chat-container',
           showWindowCloseButton: false,
           showWelcomeScreen: true,
@@ -95,19 +88,13 @@ const HomeOne = () => {
     };
 
     initChat();
-  }, [chatMode]);  // Reinitialize chat on mode change
+  }, []); // Empty dependency array to initialize only once
 
   // Toggle chat mode and update the button icon
   const toggleChatMode = () => {
-    if (chatMode === 'window') {
-      setChatMode('fullscreen');
-      setIcon(faCompress);  // Change icon to compress
-      console.log('Switched to fullscreen mode');
-    } else {
-      setChatMode('window');
-      setIcon(faExpand);  // Change icon to expand
-      console.log('Switched to window mode');
-    }
+    setIsFullscreen(!isFullscreen);
+    setIcon(isFullscreen ? faExpand : faCompress);
+    console.log(`Switched to ${!isFullscreen ? 'fullscreen' : 'window'} mode`);
   };
 
   return (
@@ -156,29 +143,42 @@ const HomeOne = () => {
         </div>
       </footer>
 
-      {/* Ensure the button is inside the correct container */}
-      <div id="n8n-chat-container">
-        {/* Chat Toggle Button */}
-        <button
-          id="toggleButton"
-          onClick={toggleChatMode}
-          style={{
-            position: 'absolute', // Changed to absolute so it is aligned within the container
-            bottom: '20px',
-            right: '20px',
-            padding: '10px',
-            backgroundColor: '#FF6600',
-            color: '#FFFFFF',
-            border: 'none',
-            borderRadius: '50%',
-            cursor: 'pointer',
-            zIndex: 1000, // Ensures the button is visible over other elements
-          }}
-          aria-label="Toggle chat window mode"
-        >
-          <FontAwesomeIcon icon={icon} size="lg" />
-        </button>
-      </div>
+      {/* Chat Container */}
+      <div
+        id="n8n-chat-container"
+        style={{
+          position: 'fixed',
+          bottom: isFullscreen ? '0' : '20px',
+          right: isFullscreen ? '0' : '20px',
+          width: isFullscreen ? '100%' : '400px',
+          height: isFullscreen ? '100%' : '600px',
+          zIndex: 999, // Ensure chat is on top
+          transition: 'all 0.3s ease',
+          borderRadius: isFullscreen ? '0' : '0.75rem',
+          overflow: 'hidden',
+        }}
+      ></div>
+
+      {/* Chat Toggle Button */}
+      <button
+        id="toggleButton"
+        onClick={toggleChatMode}
+        style={{
+          position: 'fixed',
+          bottom: '20px',
+          right: '20px',
+          padding: '10px',
+          backgroundColor: '#FF6600',
+          color: '#FFFFFF',
+          border: 'none',
+          borderRadius: '50%',
+          cursor: 'pointer',
+          zIndex: 1000,
+        }}
+        aria-label="Toggle chat window mode"
+      >
+        <FontAwesomeIcon icon={icon} size="lg" />
+      </button>
 
       <Analytics />
       <SpeedInsights />
