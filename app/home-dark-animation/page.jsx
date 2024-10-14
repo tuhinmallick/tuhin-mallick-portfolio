@@ -54,7 +54,7 @@ const HomeOne = () => {
           mode: 'window', // Set to 'window' as default
           target: '#n8n-chat-container',
           showWindowCloseButton: false,
-          showWelcomeScreen: true,
+          showWelcomeScreen: false,
           defaultLanguage: 'en',
           initialMessages: [
             'Hi there! 👋',
