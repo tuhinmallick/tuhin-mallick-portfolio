@@ -1,10 +1,8 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import '@n8n/chat/style.css';
 import { createChat } from '@n8n/chat';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faExpand, faCompress } from '@fortawesome/free-solid-svg-icons';
 
 import Header from "@/components/header/Header";
 import Slider from "@/components/slider/SliderAnimation";
@@ -20,9 +18,6 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const HomeOne = () => {
-  const [isFullscreen, setIsFullscreen] = useState(false); // State to track fullscreen mode
-  const [icon, setIcon] = useState(faExpand); // Default icon for fullscreen
-
   useEffect(() => {
     console.log('Initializing Chat');
 
@@ -90,13 +85,6 @@ const HomeOne = () => {
     initChat();
   }, []); // Empty dependency array to initialize only once
 
-  // Toggle chat mode and update the button icon
-  const toggleChatMode = () => {
-    setIsFullscreen(!isFullscreen);
-    setIcon(isFullscreen ? faExpand : faCompress);
-    console.log(`Switched to ${!isFullscreen ? 'fullscreen' : 'window'} mode`);
-  };
-
   return (
     <div className="main-left theme-dark">
       <Header />
@@ -122,16 +110,30 @@ const HomeOne = () => {
       <section id="contactus" className="section theme-light dark-bg scrollSpysection">
         <div className="container">
           <div className="row">
-            <div className="col-lg-5 col-xl-4 m-15px-tb" data-aos="fade-right" data-aos-duration="1200">
+            <div
+              className="col-lg-5 col-xl-4 m-15px-tb"
+              data-aos="fade-right"
+              data-aos-duration="1200"
+            >
               <ContactInfo />
             </div>
-            <div className="col-lg-7 ml-auto m-15px-tb" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
+            <div
+              className="col-lg-7 ml-auto m-15px-tb"
+              data-aos="fade-right"
+              data-aos-duration="1200"
+              data-aos-delay="200"
+            >
               <div className="contact-form">
                 <h4>Say Something</h4>
                 <Contact />
               </div>
             </div>
-            <div className="col-12" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300">
+            <div
+              className="col-12"
+              data-aos="fade-up"
+              data-aos-duration="1200"
+              data-aos-delay="300"
+            >
               <Map />
             </div>
           </div>
@@ -148,37 +150,16 @@ const HomeOne = () => {
         id="n8n-chat-container"
         style={{
           position: 'fixed',
-          bottom: isFullscreen ? '0' : '20px',
-          right: isFullscreen ? '0' : '20px',
-          width: isFullscreen ? '100%' : '400px',
-          height: isFullscreen ? '100%' : '600px',
+          bottom: '20px',
+          right: '20px',
+          width: '400px',
+          height: '600px',
           zIndex: 999, // Ensure chat is on top
           transition: 'all 0.3s ease',
-          borderRadius: isFullscreen ? '0' : '0.75rem',
+          borderRadius: '0.75rem',
           overflow: 'hidden',
         }}
       ></div>
-
-      {/* Chat Toggle Button */}
-      <button
-        id="toggleButton"
-        onClick={toggleChatMode}
-        style={{
-          position: 'fixed',
-          bottom: '20px',
-          right: '20px',
-          padding: '10px',
-          backgroundColor: '#FF6600',
-          color: '#FFFFFF',
-          border: 'none',
-          borderRadius: '50%',
-          cursor: 'pointer',
-          zIndex: 1000,
-        }}
-        aria-label="Toggle chat window mode"
-      >
-        <FontAwesomeIcon icon={icon} size="lg" />
-      </button>
 
       <Analytics />
       <SpeedInsights />
