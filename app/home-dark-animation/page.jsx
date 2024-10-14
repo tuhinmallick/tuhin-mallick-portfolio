@@ -58,7 +58,7 @@ const HomeOne = () => {
           defaultLanguage: 'en',
           initialMessages: [
             'Hi there! 👋',
-            "I'm Tuhin's AI assistant. How can I help you learn more about Tuhin's work as an AI Engineer?"
+            "I'm Tuhin's AI assistant. How can I help you learn more about Tuhin's work with AI?"
           ],
           i18n: {
             en: {
