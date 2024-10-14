@@ -66,6 +66,7 @@ const HomeOne = () => {
               subtitle: "I'm here to answer questions about Tuhin's experience and skills.",
               getStarted: "Start Chatting",
               inputPlaceholder: "Ask me about Tuhin's work...",
+              footer: 'Made with ✨',
             }
           },
           allowFileUploads: true,
