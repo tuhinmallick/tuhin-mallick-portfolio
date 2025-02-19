@@ -50,7 +50,7 @@ const HomeOne = () => {
     const initChat = async () => {
       try {
         await createChat({
-          webhookUrl: 'https://n8n-n8n.xuity6.easypanel.host/webhook/f406671e-c954-4691-b39a-66c90aa2f103/chat',
+          webhookUrl: 'https://n8n.tuhinmallick.com/webhook/f406671e-c954-4691-b39a-66c90aa2f103/chat',
           mode: 'window', // Set to 'window' as default
           target: '#n8n-chat-container',
           showWindowCloseButton: false,
