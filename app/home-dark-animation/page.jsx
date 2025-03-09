@@ -21,6 +21,7 @@ const HomeOne = () => {
   useEffect(() => {
     console.log('Initializing Chat');
 
+    /* Commenting out n8n chat configuration
     const root = document.documentElement;
 
     // Set CSS variables
@@ -51,7 +52,7 @@ const HomeOne = () => {
       try {
         await createChat({
           webhookUrl: 'https://n8n.tuhinmallick.com/webhook/f406671e-c954-4691-b39a-66c90aa2f103/chat',
-          mode: 'window', // Set to 'window' as default
+          mode: 'window',
           target: '#n8n-chat-container',
           showWindowCloseButton: false,
           showWelcomeScreen: false,
@@ -84,6 +85,27 @@ const HomeOne = () => {
     };
 
     initChat();
+    */
+
+    // Initialize Chatwoot
+    const script = document.createElement('script');
+    script.innerHTML = `
+      (function(d,t) {
+        var BASE_URL="https://n8n-chatwoot.xuity6.easypanel.host";
+        var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=BASE_URL+"/packs/js/sdk.js";
+        g.defer = true;
+        g.async = true;
+        s.parentNode.insertBefore(g,s);
+        g.onload=function(){
+          window.chatwootSDK.run({
+            websiteToken: 'X4Uwojmv5tmZ2UiKML7aY6kk',
+            baseUrl: BASE_URL
+          })
+        }
+      })(document,"script");
+    `;
+    document.body.appendChild(script);
   }, []); // Empty dependency array to initialize only once
 
   return (
@@ -146,7 +168,7 @@ const HomeOne = () => {
         </div>
       </footer>
 
-      {/* Chat Container */}
+      {/* Commenting out n8n chat container
       <div
         id="n8n-chat-container"
         style={{
@@ -155,12 +177,13 @@ const HomeOne = () => {
           right: '20px',
           width: '400px',
           height: '600px',
-          zIndex: 999, // Ensure chat is on top
+          zIndex: 999,
           transition: 'all 0.3s ease',
           borderRadius: '0.75rem',
           overflow: 'hidden',
         }}
       ></div>
+      */}
 
       <Analytics />
       <SpeedInsights />
