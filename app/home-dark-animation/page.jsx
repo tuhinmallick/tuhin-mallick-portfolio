@@ -91,7 +91,7 @@ const HomeOne = () => {
     const script = document.createElement('script');
     script.innerHTML = `
       (function(d,t) {
-        var BASE_URL="https://n8n-chatwoot.xuity6.easypanel.host";
+        var BASE_URL="https://n8n-chatwoot-staging.xuity6.easypanel.host";
         var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
         g.src=BASE_URL+"/packs/js/sdk.js";
         g.defer = true;
@@ -99,7 +99,7 @@ const HomeOne = () => {
         s.parentNode.insertBefore(g,s);
         g.onload=function(){
           window.chatwootSDK.run({
-            websiteToken: 'X4Uwojmv5tmZ2UiKML7aY6kk',
+            websiteToken: 'xa226agxpf73aJHB6WsCGgqU',
             baseUrl: BASE_URL
           })
         }
@@ -168,8 +168,8 @@ const HomeOne = () => {
         </div>
       </footer>
 
-      {/* Commenting out n8n chat container
-      <div
+      {/* Commenting out n8n chat container but keeping it in the code */}
+      {/* <div
         id="n8n-chat-container"
         style={{
           position: 'fixed',
@@ -182,8 +182,7 @@ const HomeOne = () => {
           borderRadius: '0.75rem',
           overflow: 'hidden',
         }}
-      ></div>
-      */}
+      ></div> */}
 
       <Analytics />
       <SpeedInsights />
