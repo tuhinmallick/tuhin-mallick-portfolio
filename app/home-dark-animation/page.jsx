@@ -91,7 +91,7 @@ const HomeOne = () => {
     const script = document.createElement('script');
     script.innerHTML = `
       (function(d,t) {
-        var BASE_URL="https://n8n-chatwoot-staging.xuity6.easypanel.host";
+        var BASE_URL="https://chatguru.callapro.ai";
         var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
         g.src=BASE_URL+"/packs/js/sdk.js";
         g.defer = true;
@@ -99,7 +99,7 @@ const HomeOne = () => {
         s.parentNode.insertBefore(g,s);
         g.onload=function(){
           window.chatwootSDK.run({
-            websiteToken: 'xa226agxpf73aJHB6WsCGgqU',
+            websiteToken: 'vB4XZaF4PeT2shjdnLTyW6iA',
             baseUrl: BASE_URL
           })
         }
