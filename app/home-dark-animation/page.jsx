@@ -21,6 +21,142 @@ const HomeOne = () => {
   useEffect(() => {
     console.log('Initializing Chat');
 
+    /**
+     * Example: If you want to *disable* the n8n chat for now,
+     * just comment out the following code. 
+     *
+     * // const initChat = async () => { ... }
+     * // initChat();
+     */
+
+    // -- Start Chatwoot settings + script
+    const script = document.createElement('script');
+
+    // Here, define the Chatwoot settings plus the script loader.
+    script.innerHTML = `
+      // Global chatwoot settings must be declared on window before loading the SDK
+      window.chatwootSettings = {
+        position: "right",
+        darkMode: "light",
+        type: "expanded_bubble",
+        showUnreadMessagesDialog: true,
+        hideMessageBubble: false,
+        useBrowserLanguage: true,
+        locale: "de",
+        launcherTitle: "🚗 Lass uns muvn!",
+        showPopoutButton: true,
+        baseDomain: ".callapro.ai"
+      };
+
+      (function(d, t) {
+        var BASE_URL = "https://chatguru.callapro.ai";
+        var g = d.createElement(t), 
+            s = d.getElementsByTagName(t)[0];
+        g.src = BASE_URL + "/packs/js/sdk.js";
+        g.defer = true;
+        g.async = true;
+        s.parentNode.insertBefore(g, s);
+        g.onload = function() {
+          window.chatwootSDK.run({
+            websiteToken: 'vB4XZaF4PeT2shjdnLTyW6iA',
+            baseUrl: BASE_URL
+          });
+        };
+      })(document, "script");
+    `;
+    document.body.appendChild(script);
+    // -- End Chatwoot settings + script
+
+  }, []); // Empty dependency array to ensure this runs only once
+
+  return (
+    <div className="main-left theme-dark">
+      <Header />
+      <Slider />
+      <About />
+      <Resume />
+      <section id="work" className="section theme-light dark-bg scrollSpysection">
+        <div className="container text-white">
+          <div className="title">
+            <h3>My Portfolio.</h3>
+          </div>
+          <Portfolio />
+        </div>
+      </section>
+      <section id="blog" className="section scrollSpysection">
+        <div className="container">
+          <div className="title">
+            <h3>Latest Blog.</h3>
+          </div>
+          <Blog />
+        </div>
+      </section>
+      <section id="contactus" className="section theme-light dark-bg scrollSpysection">
+        <div className="container">
+          <div className="row">
+            <div
+              className="col-lg-5 col-xl-4 m-15px-tb"
+              data-aos="fade-right"
+              data-aos-duration="1200"
+            >
+              <ContactInfo />
+            </div>
+            <div
+              className="col-lg-7 ml-auto m-15px-tb"
+              data-aos="fade-right"
+              data-aos-duration="1200"
+              data-aos-delay="200"
+            >
+              <div className="contact-form">
+                <h4>Say Something</h4>
+                <Contact />
+              </div>
+            </div>
+            <div
+              className="col-12"
+              data-aos="fade-up"
+              data-aos-duration="1200"
+              data-aos-delay="300"
+            >
+              <Map />
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer className="footer white">
+        <div className="container">
+          <Footer />
+        </div>
+      </footer>
+
+      {/* 
+        If you still want the n8n chat container in the DOM, you can keep it here.
+        <div
+          id="n8n-chat-container"
+          style={{
+            position: 'fixed',
+            bottom: '20px',
+            right: '20px',
+            width: '400px',
+            height: '600px',
+            zIndex: 999,
+            transition: 'all 0.3s ease',
+            borderRadius: '0.75rem',
+            overflow: 'hidden',
+          }}
+        ></div>
+      */}
+
+      <Analytics />
+      <SpeedInsights />
+    </div>
+  );
+};
+
+export default HomeOne;
+
+
+
     /* Commenting out n8n chat configuration
     const root = document.documentElement;
 
@@ -86,108 +222,3 @@ const HomeOne = () => {
 
     initChat();
     */
-
-    // Initialize Chatwoot
-    const script = document.createElement('script');
-    script.innerHTML = `
-      (function(d,t) {
-        var BASE_URL="https://chatguru.callapro.ai";
-        var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-        g.src=BASE_URL+"/packs/js/sdk.js";
-        g.defer = true;
-        g.async = true;
-        s.parentNode.insertBefore(g,s);
-        g.onload=function(){
-          window.chatwootSDK.run({
-            websiteToken: 'vB4XZaF4PeT2shjdnLTyW6iA',
-            baseUrl: BASE_URL
-          })
-        }
-      })(document,"script");
-    `;
-    document.body.appendChild(script);
-  }, []); // Empty dependency array to initialize only once
-
-  return (
-    <div className="main-left theme-dark">
-      <Header />
-      <Slider />
-      <About />
-      <Resume />
-      <section id="work" className="section theme-light dark-bg scrollSpysection">
-        <div className="container text-white">
-          <div className="title">
-            <h3>My Portfolio.</h3>
-          </div>
-          <Portfolio />
-        </div>
-      </section>
-      <section id="blog" className="section scrollSpysection">
-        <div className="container">
-          <div className="title">
-            <h3>Latest Blog.</h3>
-          </div>
-          <Blog />
-        </div>
-      </section>
-      <section id="contactus" className="section theme-light dark-bg scrollSpysection">
-        <div className="container">
-          <div className="row">
-            <div
-              className="col-lg-5 col-xl-4 m-15px-tb"
-              data-aos="fade-right"
-              data-aos-duration="1200"
-            >
-              <ContactInfo />
-            </div>
-            <div
-              className="col-lg-7 ml-auto m-15px-tb"
-              data-aos="fade-right"
-              data-aos-duration="1200"
-              data-aos-delay="200"
-            >
-              <div className="contact-form">
-                <h4>Say Something</h4>
-                <Contact />
-              </div>
-            </div>
-            <div
-              className="col-12"
-              data-aos="fade-up"
-              data-aos-duration="1200"
-              data-aos-delay="300"
-            >
-              <Map />
-            </div>
-          </div>
-        </div>
-      </section>
-      <footer className="footer white">
-        <div className="container">
-          <Footer />
-        </div>
-      </footer>
-
-      {/* Commenting out n8n chat container but keeping it in the code */}
-      {/* <div
-        id="n8n-chat-container"
-        style={{
-          position: 'fixed',
-          bottom: '20px',
-          right: '20px',
-          width: '400px',
-          height: '600px',
-          zIndex: 999,
-          transition: 'all 0.3s ease',
-          borderRadius: '0.75rem',
-          overflow: 'hidden',
-        }}
-      ></div> */}
-
-      <Analytics />
-      <SpeedInsights />
-    </div>
-  );
-};
-
-export default HomeOne;
