@@ -58,7 +58,7 @@ const HomeOne = () => {
         s.parentNode.insertBefore(g, s);
         g.onload = function() {
           window.chatwootSDK.run({
-            websiteToken: 'vB4XZaF4PeT2shjdnLTyW6iA',
+            websiteToken: 'u88m79mM6KtsBwT1b8Rsx1hK',
             baseUrl: BASE_URL
           });
         };
