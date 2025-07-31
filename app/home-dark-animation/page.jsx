@@ -43,7 +43,7 @@ const HomeOne = () => {
         hideMessageBubble: false,
         useBrowserLanguage: true,
         locale: "de",
-        launcherTitle: "🚗 Lass uns muvn!",
+        launcherTitle: "Chatten mit uns",
         showPopoutButton: true,
         baseDomain: ".callapro.ai"
       };
