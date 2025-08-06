@@ -41,7 +41,6 @@ const HomeOne = () => {
         type: "expanded_bubble",
         showUnreadMessagesDialog: true,
         hideMessageBubble: false,
-        useBrowserLanguage: true,
         locale: "de",
         launcherTitle: "Chatten mit uns",
         showPopoutButton: true,
